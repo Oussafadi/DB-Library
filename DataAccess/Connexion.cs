@@ -1,0 +1,104 @@
+﻿using Microsoft.Data.SqlClient;
+using MySql.Data.MySqlClient;
+using System.Collections.Generic;
+using System.Data;
+using System.IO;
+
+namespace DataAccess
+{
+    internal class Connexion
+    {
+        public static IDbConnection con;
+        public static IDbCommand cmd ;
+
+        public static void Connect()
+        {
+            if (con == null)
+            {
+             //   string str_con = "server=localhost;uid=root;pwd='';database=bdjava";
+              //  con = new MySqlConnection(str_con);
+             //   cmd = new MySqlCommand();
+
+                var DatabaseInfo = new Dictionary<string, string>();
+                string file = @"E:\VisualStudioC#\DataAccess\DataAccess\.env";
+                if ( File.Exists(file))
+                {
+                  //  Console.WriteLine("kil9a lfile");
+                    string[] lines = File.ReadAllLines(file);
+                    string[] parts;
+                    foreach ( string line in lines )
+                    {
+                        parts = line.Split("=".ToCharArray());
+                        DatabaseInfo.Add(parts[0], parts[1]);
+                    }
+                }
+                switch (DatabaseInfo["DB_CONNECTION"])
+                {
+                    case "mysql":
+                        con = new MySqlConnection("server =" + DatabaseInfo["DB_HOST"] + "; uid=" + DatabaseInfo["DB_USERNAME"] + ";pwd=" + DatabaseInfo["DB_PASSWORD"] + "; database=" + DatabaseInfo["DB_DATABASE"]);
+                        cmd = new MySqlCommand();
+                      //  Console.WriteLine("kiwssal hna");
+                        break;
+
+                    case "sqlserver":
+                        con = new SqlConnection("server =" + DatabaseInfo["DB_HOST"] + "; uid=" + DatabaseInfo["DB_USERNAME"] + ";pwd=" + DatabaseInfo["DB_PASSWORD"] + "; database=" + DatabaseInfo["DB_DATABASE"]);
+                        cmd = new SqlCommand();
+                        break;
+
+                }
+                {
+
+                }
+
+            }
+            if ( con.State.ToString() =="Closed")
+            {
+                con.Open();
+                cmd.Connection = con;
+            }
+        }
+
+
+
+
+
+        public static int IUD(string req)
+        {
+            cmd.CommandText = req;
+            return cmd.ExecuteNonQuery();
+
+
+        }
+
+        public static IDataReader Select(string req)
+        {
+
+            cmd.CommandText = req;
+            return cmd.ExecuteReader();
+
+        }
+
+        public static Dictionary<string, string> Get_champs(string table)
+        {
+            int i;
+            Dictionary<string, string> dict;
+            string sql = "select * from " + table;
+            dict = new Dictionary<string, string>();
+           // cmd = new MySqlCommand(sql, Connexion.con);
+            cmd.CommandText = sql;
+            IDataReader rd = cmd.ExecuteReader();
+
+            for (i = 0; i < rd.FieldCount; i++)
+            {
+                string colName = rd.GetName(i);
+                string colType = rd.GetFieldType(i).ToString();
+                dict.Add(colName, colType);
+            }
+
+            rd.Close();
+
+            return dict;
+        }
+
+    }
+}
