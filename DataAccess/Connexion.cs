@@ -1,4 +1,5 @@
 ﻿//using Microsoft.Data.SqlClient;
+using System.Data.SqlClient;
 using MySql.Data.MySqlClient;
 using System.Collections.Generic;
 using System.Data;
@@ -39,10 +40,10 @@ namespace DataAccess
                         con = new MySqlConnection(
                             "server =" + DatabaseInfo["DB_HOST"] + ";" +
                             "uid=" + DatabaseInfo["DB_USERNAME"] + ";" +
-                            "pwd=" + DatabaseInfo["DB_PASSWORD"] + "; database=" + DatabaseInfo["DB_DATABASE"]
+                            "pwd=" + DatabaseInfo["DB_PASSWORD"] + ";" + 
+                            "database=" + DatabaseInfo["DB_DATABASE"]
                         );
                         cmd = new MySqlCommand();
-                      //  Console.WriteLine("kiwssal hna");
                         break;
 
                     case "sqlserver":

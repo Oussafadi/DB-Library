@@ -34,6 +34,8 @@ public class Program
         m.id = 1;
         m.save();
 
+        System.Console.Write(Model.find<Module>(1));
+
         //e6.code = "5355";
         //e6.nom = "Oussamatest";
         //e6.prenom = "Fadiltest";
