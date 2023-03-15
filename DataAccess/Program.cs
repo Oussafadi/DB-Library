@@ -18,15 +18,21 @@ public class Program
         // e6.id = 10;
         //  e6.delete("EtudiantDelete");  // Procedure Delete Marche bien
 
-        //Etudiant e7 = new Etudiant();
-        //e7.id = 12346;
-        //e7.code = "1234";
-        //e7.nom = "ousssama";
-        //e7.prenom = "fadil";
-        //e7.niveau = "GINF2";
-        //e7.code_fil = "G3";
-        //e7.save("etudiantUpdate");  // Procedure update Marche bien
+        Eleve e7 = new Eleve();
+        e7.code = "1234";
+        e7.nom = "o";
+        e7.prenom = "fadil";
+        e7.niveau = "GINF2";
+        e7.id_fil = "1";
+        e7.id = 1;
+        e7.save();  // Procedure update Marche bien
 
+        Module m = new Module();
+        m.code = "2";
+        m.niveau = "3";
+        m.id_filiere = "1";
+        m.id = 1;
+        m.save();
 
         //e6.code = "5355";
         //e6.nom = "Oussamatest";

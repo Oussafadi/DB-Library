@@ -1,5 +1,8 @@
 ﻿
-namespace DataAccess
+
+using DataAccess;
+
+namespace MODELES
 {
     internal class Moyenne : Model
     {

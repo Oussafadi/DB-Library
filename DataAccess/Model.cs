@@ -18,7 +18,7 @@ namespace DataAccess
 
         //public Model(string sql)
         //{ this.sql = sql; }
-        public Dictionary<string, T> ObjectToDictionary<T>(object obj)
+        static public Dictionary<string, T> ObjectToDictionary<T>(object obj)
         {
             var attributs = new Dictionary<string, T>();
             FieldInfo[] objFields = obj.GetType().GetFields();
@@ -66,7 +66,7 @@ namespace DataAccess
         public int save(string proc = null)
         {
             Dictionary<string, string> dico = new Dictionary<string, string>();
-            dico = this.ObjectToDictionary<string>(this);
+            dico = Model.ObjectToDictionary<string>(this);
             string requete = "";
 
             if (id == 0)
@@ -77,16 +77,14 @@ namespace DataAccess
                     foreach (KeyValuePair<string, string> atr in dico)
                     {
                         
-
                         Connexion.cmd.CommandType = CommandType.StoredProcedure;
                         Connexion.cmd.Parameters.Add(new MySqlParameter(atr.Key, atr.Value));
-
                     }
 
                 }
                 else
                 {
-                    requete = " INSERT INTO " + this.GetType().Name + "  (";
+                    requete = "INSERT INTO " + this.GetType().Name + "(";
                     FieldInfo[] fields = this.GetType().GetFields();
                     for (int i = 0; i < fields.Length; i++)
                     {
@@ -95,7 +93,7 @@ namespace DataAccess
                     }
                     requete = requete.Remove(requete.Length - 1);
 
-                    requete += ") VALUES (";
+                    requete += ") VALUES(";
                     foreach (var atr in dico)
                     {
                         if (atr.Value == "0") continue;
@@ -105,7 +103,6 @@ namespace DataAccess
                         }
                         else
                         {
-                            
                             requete += " " + atr.Value + " ,";
                         }
                     }
@@ -132,7 +129,7 @@ namespace DataAccess
                 }
                 else
                 {
-                    requete = "UPDATE " + this.GetType().Name + " SET ";
+                    requete = "UPDATE " + this.GetType().Name + " SET";
 
                     foreach (var atr in dico)
                     {
@@ -329,9 +326,6 @@ namespace DataAccess
                 return result;
 
             }
-
-
-
 
         }
 }

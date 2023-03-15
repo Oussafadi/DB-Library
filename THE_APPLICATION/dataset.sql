@@ -1,7 +1,7 @@
 create table Filiere(
     id int auto_increment primary key,
     code varchar(30) ,
-    designantion varchar(55), 
+    designation varchar(55), 
     constraint filiere_uni unique (code)
 );
 
@@ -9,7 +9,7 @@ create table Filiere(
 create table Module(
     id int auto_increment,
     code varchar(30),
-    designantion varchar(55),
+    designation varchar(55),
     niveau varchar(30),
     semestre varchar(30),
     id_filiere int(30),
@@ -26,7 +26,7 @@ create table Module(
 create table Matiere(
     id int auto_increment,
     code varchar(30),
-    designantion varchar(55),
+    designation varchar(55),
     VH float,
     id_module int,
     
@@ -72,7 +72,7 @@ create table Note(
 create table Moyenne(
     id int auto_increment,
     id_eleve int,
-    id_fil int,
+    id_filiere int,
     niveau varchar(30),
     moyenne float,
 
@@ -83,3 +83,4 @@ create table Moyenne(
         references Filiere(id) on delete CASCADE
 ); 
 
+insert into Filiere(code) values("AP");

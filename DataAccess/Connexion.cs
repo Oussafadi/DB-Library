@@ -1,8 +1,9 @@
-﻿using Microsoft.Data.SqlClient;
+﻿//using Microsoft.Data.SqlClient;
 using MySql.Data.MySqlClient;
 using System.Collections.Generic;
 using System.Data;
 using System.IO;
+using System;
 
 namespace DataAccess
 {
@@ -13,6 +14,7 @@ namespace DataAccess
 
         public static void Connect()
         {
+
             if (con == null)
             {
              //   string str_con = "server=localhost;uid=root;pwd='';database=bdjava";
@@ -20,10 +22,9 @@ namespace DataAccess
              //   cmd = new MySqlCommand();
 
                 var DatabaseInfo = new Dictionary<string, string>();
-                string file = @"E:\VisualStudioC#\DataAccess\DataAccess\.env";
-                if ( File.Exists(file))
+                string file = @"C:\Users\joudia\Desktop\project_c_sharp\DataAccess\.env";
+                if (File.Exists(file))
                 {
-                  //  Console.WriteLine("kil9a lfile");
                     string[] lines = File.ReadAllLines(file);
                     string[] parts;
                     foreach ( string line in lines )
@@ -35,47 +36,46 @@ namespace DataAccess
                 switch (DatabaseInfo["DB_CONNECTION"])
                 {
                     case "mysql":
-                        con = new MySqlConnection("server =" + DatabaseInfo["DB_HOST"] + "; uid=" + DatabaseInfo["DB_USERNAME"] + ";pwd=" + DatabaseInfo["DB_PASSWORD"] + "; database=" + DatabaseInfo["DB_DATABASE"]);
+                        con = new MySqlConnection(
+                            "server =" + DatabaseInfo["DB_HOST"] + ";" +
+                            "uid=" + DatabaseInfo["DB_USERNAME"] + ";" +
+                            "pwd=" + DatabaseInfo["DB_PASSWORD"] + "; database=" + DatabaseInfo["DB_DATABASE"]
+                        );
                         cmd = new MySqlCommand();
                       //  Console.WriteLine("kiwssal hna");
                         break;
 
                     case "sqlserver":
-                        con = new SqlConnection("server =" + DatabaseInfo["DB_HOST"] + "; uid=" + DatabaseInfo["DB_USERNAME"] + ";pwd=" + DatabaseInfo["DB_PASSWORD"] + "; database=" + DatabaseInfo["DB_DATABASE"]);
-                        cmd = new SqlCommand();
+                        //con = new SqlConnection(
+                        //    "server =" + DatabaseInfo["DB_HOST"] + ";" +
+                        //    "uid=" + DatabaseInfo["DB_USERNAME"] + ";" +
+                        //    "pwd=" + DatabaseInfo["DB_PASSWORD"] + ";" +
+                        //    "database=" + DatabaseInfo["DB_DATABASE"]
+                        //);
+                        //cmd = new SqlCommand();
                         break;
-
-                }
-                {
 
                 }
 
             }
-            if ( con.State.ToString() =="Closed")
+            if (con.State.ToString() =="Closed")
             {
                 con.Open();
                 cmd.Connection = con;
             }
         }
 
-
-
-
-
         public static int IUD(string req)
         {
             cmd.CommandText = req;
             return cmd.ExecuteNonQuery();
 
-
         }
 
         public static IDataReader Select(string req)
         {
-
             cmd.CommandText = req;
             return cmd.ExecuteReader();
-
         }
 
         public static Dictionary<string, string> Get_champs(string table)
