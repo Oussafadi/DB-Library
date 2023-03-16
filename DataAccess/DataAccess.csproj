@@ -6,13 +6,15 @@
   </PropertyGroup>
 
   <ItemGroup>
-	  <PackageReference Include="MySql.Data" Version="8.0.32.1" />
-	  <PackageReference Include="Microsoft.CSharp" Version="4.7.0" />
-	  <PackageReference Include="System.Data.SqlClient" Version="4.8.5" />
+    <Compile Remove="lib\**" />
+    <EmbeddedResource Remove="lib\**" />
+    <None Remove="lib\**" />
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="lib\" />
+	  <PackageReference Include="Microsoft.CSharp" Version="4.7.0" />
+	  <PackageReference Include="Microsoft.Data.SqlClient" Version="5.1.0" />
+	  <PackageReference Include="MySql.Data" Version="8.0.32.1" />
   </ItemGroup>
 
 </Project>
