@@ -83,13 +83,13 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\DataAccess\DataAccess.csproj">
-      <Project>{6cf455ac-0aaa-4fff-8192-6f3e46b87876}</Project>
-      <Name>DataAccess</Name>
-    </ProjectReference>
+    <Content Include="dataset.sql" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="dataset.sql" />
+    <ProjectReference Include="..\Access\Access.csproj">
+      <Project>{adc2dfda-e1f0-4ba7-866d-488440d4f1b2}</Project>
+      <Name>Access</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
