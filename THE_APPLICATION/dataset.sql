@@ -4,7 +4,10 @@ create table Filiere(
     designation varchar(64), 
     constraint filiere_uni unique (code)
 );
-
+insert into Filiere(code,  designation)
+    VALUES ("AP", "Cycle Preparatoire");
+insert into Filiere(code,  designation)
+    VALUES ("GINF", "Cycle Ingenier: Genie Informatique ");
 
 create table Module(
     id int auto_increment,
@@ -20,7 +23,15 @@ create table Module(
         references Filiere(code) on delete CASCADE
 );
 
+INSERT into Module(code, designation, niveau, semestre, code_filiere)
+    VALUES("MATH0", "Mathematique", "AP1", "S1", "AP");
+INSERT into Module(code, designation, niveau, semestre, code_filiere)
+    VALUES("PHY1", "Electro-magnetique", "AP1", "S2", "AP");
 
+INSERT into Module(code, designation, niveau, semestre, code_filiere)
+    VALUES("INFO1", "Programation", "GINF1", "S1", "GINF");
+INSERT into Module(code, designation, niveau, semestre, code_filiere)
+    VALUES("INFO2", "Les bases de donnees", "GINF1", "S2", "GINF");
 
 
 create table Matiere(

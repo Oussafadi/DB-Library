@@ -14,6 +14,4 @@
             return "nom :" + nom + " niveau :" + niveau ;
         }
     }
-
-    
 }
