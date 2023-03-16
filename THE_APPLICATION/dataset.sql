@@ -1,23 +1,23 @@
 create table Filiere(
     id int auto_increment primary key,
-    code varchar(30) ,
-    designation varchar(55), 
+    code varchar(32) not null,
+    designation varchar(64), 
     constraint filiere_uni unique (code)
 );
 
 
 create table Module(
     id int auto_increment,
-    code varchar(30),
-    designation varchar(55),
-    niveau varchar(30),
-    semestre varchar(30),
-    id_filiere int(30),
+    code varchar(32) not null,
+    designation varchar(64),
+    niveau varchar(32),
+    semestre varchar(32),
+    code_filiere varchar(32),
 
     constraint  modl_pk primary key(id),
     constraint  modl_uni unique(code),
-    constraint  modl_fk foreign key(id_filiere) 
-        references Filiere(id) on delete CASCADE
+    constraint  modl_fk foreign key(code_filiere) 
+        references Filiere(code) on delete CASCADE
 );
 
 
@@ -25,65 +25,62 @@ create table Module(
 
 create table Matiere(
     id int auto_increment,
-    code varchar(30),
-    designation varchar(55),
+    code varchar(32) not null,
+    designation varchar(54),
     VH float,
-    id_module int,
+    code_module varchar(32),
     
     constraint Mtr_pk primary key(id),
     constraint Mtr_uni unique (code),
-    constraint mtr_fk foreign key(id_module) 
-        references Module(id) on delete CASCADE
+    constraint mtr_fk foreign key(code_module) 
+        references Module(code) on delete CASCADE
 ); 
 
 
 
 create table Eleve(
     id int auto_increment,
-    code varchar(30),
-    nom varchar(55),
-    prenom varchar(55),
-    niveau varchar(30),
-    id_fil int,
+    code varchar(32) not null,
+    nom varchar(64),
+    prenom varchar(64),
+    niveau varchar(32),
+    code_filiere varchar(32),
 
     constraint Eleve_pk primary key(id),
     constraint Eleve_uni unique (code),
-    constraint Elev_fk foreign key(id_fil) 
-        references Filiere(id) on delete CASCADE
-); 
-
+    constraint Elev_fk foreign key(code_filiere) 
+        references Filiere(code) on delete CASCADE
+);
 
 
 create table Note(
     id int auto_increment,
-    id_eleve int,
-    id_mat int,
+    code_eleve varchar(32),
+    code_matiere varchar(32),
     note float,
 
-    constraint Notes_pk primary key(id, id_eleve,id_mat),
-    constraint N_fk1 foreign key(id_eleve) 
-        references Eleve(id) on delete CASCADE,
-    constraint N_fk2 foreign key(id_mat) 
-        references Matiere(id) on delete CASCADE
+    constraint Notes_pk primary key(id, code_eleve, code_matiere),
+    constraint N_fk1 foreign key(code_eleve) 
+        references Eleve(code) on delete CASCADE,
+    constraint N_fk2 foreign key(code_matiere) 
+        references Matiere(code) on delete CASCADE
 ); 
 
 
 
 create table Moyenne(
     id int auto_increment,
-    id_eleve int,
-    id_filiere int,
-    niveau varchar(30),
+    code_eleve varchar(32),
+    code_filiere varchar(32),
+    niveau varchar(32),
     moyenne float,
 
-    constraint Moyennes_pk primary key(id,id_eleve,id_filiere,niveau),
-    constraint mdl_fk1 foreign key(id_eleve) 
-        references Eleve(id) on delete CASCADE,
-    constraint mdl_fk2 foreign key(id_filiere) 
-        references Filiere(id) on delete CASCADE
+    constraint Moyennes_pk primary key(id, code_eleve, code_filiere, niveau),
+    constraint mdl_fk1 foreign key(code_eleve) 
+        references Eleve(code) on delete CASCADE,
+    constraint mdl_fk2 foreign key(code_filiere) 
+        references Filiere(code) on delete CASCADE
 ); 
-
-insert into Filiere(code) values("AP");
 
 
 DELIMITER $$
