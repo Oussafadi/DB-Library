@@ -76,10 +76,10 @@ create table Moyenne(
     niveau varchar(30),
     moyenne float,
 
-    constraint Moyennes_pk primary key(id,id_eleve,id_fil,niveau),
+    constraint Moyennes_pk primary key(id,id_eleve,id_filiere,niveau),
     constraint mdl_fk1 foreign key(id_eleve) 
         references Eleve(id) on delete CASCADE,
-    constraint mdl_fk2 foreign key(id_fil) 
+    constraint mdl_fk2 foreign key(id_filiere) 
         references Filiere(id) on delete CASCADE
 ); 
 

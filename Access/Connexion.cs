@@ -22,14 +22,14 @@ namespace DataAccess
              //   cmd = new MySqlCommand();
 
                 var DatabaseInfo = new Dictionary<string, string>();
-                string file = @"C:\Users\joudia\Desktop\project_c_sharp\DataAccess\.env";
+                string file = @"C:\Users\joudia\Desktop\project_c_sharp\Access\.env";
                 if (File.Exists(file))
                 {
                     string[] lines = File.ReadAllLines(file);
                     string[] parts;
                     foreach ( string line in lines )
                     {
-                        parts = line.Split("=".ToCharArray());
+                        parts = line.Split(" = ".ToCharArray());
                         DatabaseInfo.Add(parts[0], parts[1]);
                     }
                 }
