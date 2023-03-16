@@ -6,7 +6,7 @@
         public string designation = "";
         public string semestre = "";
         public string niveau = "";
-        public string id_filiere = "";
+        public string code_filiere = "";
         
     }
 }

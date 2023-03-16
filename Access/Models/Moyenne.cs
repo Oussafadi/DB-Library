@@ -6,8 +6,8 @@ namespace MODELES
 {
     internal class Moyenne : Model
     {
-        public string id_elve = ""; 
-        public string id_filiere = "";
+        public string code_elve = ""; 
+        public string code_filiere = "";
         public string niveau = "";
         public float moyenne = 0;
     }

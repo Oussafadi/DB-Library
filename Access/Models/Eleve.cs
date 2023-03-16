@@ -6,7 +6,7 @@
         public string nom = "";
         public string prenom = "";
         public string niveau = "";
-        public string id_fil = "";
+        public string code_filiere = "";
 
       // public Etudiant() { this.niveau = "AP1"; }
         public override string ToString()
