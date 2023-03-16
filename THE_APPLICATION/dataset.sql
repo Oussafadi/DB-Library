@@ -84,3 +84,32 @@ create table Moyenne(
 ); 
 
 insert into Filiere(code) values("AP");
+
+
+DELIMITER $$
+CREATE  PROCEDURE `EtudiantDelete`(IN id int)
+BEGIN
+  DELETE FROM etudiant  where  etudiant.id = id;
+end$$
+DELIMITER ;
+
+DELIMITER $$
+CREATE  PROCEDURE `etudiantInsert`(
+    IN id int,
+    IN code varchar(50),
+    IN nom varchar(50),
+    IN prenom varchar(50),
+    IN niveau varchar(50),
+    IN code_fil varchar(50)
+  )
+BEGIN
+  INSERT INTO  etudiant VALUES (id, code, nom, prenom, niveau, code_fil);
+end$$
+DELIMITER ;
+
+DELIMITER $$
+CREATE PROCEDURE `etudiantUpdate`(IN `id` INT, IN `code` VARCHAR(255), IN `nom` VARCHAR(255), IN `prenom` VARCHAR(255), IN `niveau` VARCHAR(255), IN `code_fil` VARCHAR(255))
+BEGIN
+  UPDATE etudiant  SET  code = code,  nom = nom,   prenom = prenom,   niveau = niveau,   code_fil = code_fil WHERE  etudiant.id = id;
+end$$
+DELIMITER ;
