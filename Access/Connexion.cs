@@ -46,12 +46,13 @@ namespace DataAccess
                         break;
 
                     case "sqlserver":
+                        Console.WriteLine("test test");
                         con = new SqlConnection(
-                            "server =" + DatabaseInfo["DB_HOST"] + ";" +
-                            "uid=" + DatabaseInfo["DB_USERNAME"] + ";" +
-                            "pwd=" + DatabaseInfo["DB_PASSWORD"] + ";" +
-                            "database=" + DatabaseInfo["DB_DATABASE"]
-                        );
+                            "Data Source =" + DatabaseInfo["Data_Source"] + 
+                            "; Initial Catalog=" + DatabaseInfo["Initial_Catalog"] + 
+                            ";Integrated Security=" + DatabaseInfo["Integrated_Security"] + 
+                            ";encrypt=false");
+
                         cmd = new SqlCommand();
                         break;
 
