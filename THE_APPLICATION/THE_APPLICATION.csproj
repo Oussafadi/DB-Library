@@ -47,6 +47,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Bilan_annuel.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Bilan_annuel.Designer.cs">
+      <DependentUpon>Bilan_annuel.cs</DependentUpon>
+    </Compile>
     <Compile Include="Consultation_des_notes_form.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -61,6 +67,9 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="Bilan_annuel.resx">
+      <DependentUpon>Bilan_annuel.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Consultation_des_notes_form.resx">
       <DependentUpon>Consultation_des_notes_form.cs</DependentUpon>
     </EmbeddedResource>

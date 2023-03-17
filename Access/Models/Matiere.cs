@@ -4,7 +4,7 @@ using DataAccess;
 
 namespace MODELES
 {
-    internal class Matiere : Model
+    public class Matiere : Model
     {
         public string code = ""; 
         public string designation = "";
