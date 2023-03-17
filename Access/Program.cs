@@ -5,6 +5,7 @@ public class Program
     public static void Main(string[] args)
     {
         System.Console.WriteLine("DataAccess");
+
         // Connexion.Connect();
         // Model m1 = new Model("test object to dictionnary");
         //var dico =  m1.ObjectToDictionary<object>(m1);
