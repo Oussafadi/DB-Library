@@ -81,9 +81,9 @@
     <Content Include="dataset.sql" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\Access\Access.csproj">
-      <Project>{adc2dfda-e1f0-4ba7-866d-488440d4f1b2}</Project>
-      <Name>Access</Name>
+    <ProjectReference Include="..\AccessData\AccessData.csproj">
+      <Project>{3aa0ca9d-ff70-496e-9556-15884553a121}</Project>
+      <Name>AccessData</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
