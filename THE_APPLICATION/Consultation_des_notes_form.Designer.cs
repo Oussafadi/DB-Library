@@ -1,6 +1,6 @@
 ﻿namespace THE_APPLICATION
 {
-    partial class Form1
+    partial class Consultation_des_notes_form
     {
         /// <summary>
         /// Required designer variable.
@@ -28,13 +28,19 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
+            this.SuspendLayout();
+            // 
+            // consultation_des_notes
+            // 
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
-            this.Text = "Form1";
+            this.Name = "consultation_des_notes";
+            this.Text = "Consultation des notes";
+            this.ResumeLayout(false);
+
         }
 
         #endregion
     }
 }
-
