@@ -1,6 +1,6 @@
 ﻿namespace DataAccess
 {
-    internal class Eleve : Model
+    public class Eleve : Model
     {
         public string code = "";
         public string nom = "";

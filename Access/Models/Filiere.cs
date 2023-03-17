@@ -1,6 +1,6 @@
 ﻿namespace DataAccess
 {
-    internal class Filiere : Model
+    public class Filiere : Model
     {
         public string code = "";
         public string designation = "";

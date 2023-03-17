@@ -1,6 +1,6 @@
 ﻿namespace DataAccess
 {
-    internal class Note : Model 
+    public class Note : Model 
     {
         public string code_eleve = ""; 
         public string code_matiere = "";

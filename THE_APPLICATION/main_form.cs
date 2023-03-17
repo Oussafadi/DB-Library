@@ -28,5 +28,12 @@ namespace THE_APPLICATION
             consultation_des_notes_form.MdiParent = this;
             consultation_des_notes_form.Show();
         }
+
+        private void bilanToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+          Bilan_annuel bn =  new Bilan_annuel();
+            bn.MdiParent = this;
+            bn.Show();
+        }
     }
 }

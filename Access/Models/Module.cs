@@ -1,6 +1,6 @@
 ﻿namespace DataAccess
 {
-    internal class Module : Model
+    public class Module : Model
     {
         public string code = "";
         public string designation = "";

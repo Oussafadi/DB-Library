@@ -4,7 +4,7 @@ using DataAccess;
 
 namespace MODELES
 {
-    internal class Moyenne : Model
+    public class Moyenne : Model
     {
         public string code_eleve = ""; 
         public string code_filiere = "";
