@@ -16,5 +16,10 @@ namespace THE_APPLICATION
         {
             InitializeComponent();
         }
+
+        private void label1_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
