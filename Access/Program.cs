@@ -19,23 +19,26 @@ public class Program
         // e6.id = 10;
         //  e6.delete("EtudiantDelete");  // Procedure Delete Marche bien
 
+        Filiere ap = new Filiere();
+        ap.code = "AP";
+        ap.id = 1;
+        ap.save();
+
+
         Eleve e7 = new Eleve();
         e7.code = "1234";
         e7.nom = "o";
         e7.prenom = "fadil";
-        e7.niveau = "GINF2";
-        e7.id_fil = "1";
-        e7.id = 1;
+        e7.niveau = "AP1";
+        e7.code_filiere = "AP";
         e7.save();  // Procedure update Marche bien
 
         Module m = new Module();
         m.code = "2";
         m.niveau = "3";
-        m.id_filiere = "1";
+        m.code_filiere = "1";
         m.id = 1;
         m.save();
-
-        System.Console.Write(Model.find<Module>(1));
 
         //e6.code = "5355";
         //e6.nom = "Oussamatest";
