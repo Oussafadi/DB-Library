@@ -24,10 +24,10 @@ namespace DataAccess
             FieldInfo[] objFields = obj.GetType().GetFields();
             for (int i = 0; i < objFields.Length; i++)
             {
-              //  if (objFields[i].Name == "id") continue;
+                //  if (objFields[i].Name == "id") continue;
                 //  Console.WriteLine(objFields[i].Name + ": " + objFields[i].GetValue(obj).ToString());
-                attributs.Add(objFields[i].Name,(T)(Convert.ChangeType(objFields[i].GetValue(obj), typeof(T))));
-               
+                attributs.Add(objFields[i].Name, (T)(Convert.ChangeType(objFields[i].GetValue(obj), typeof(T))));
+
             }
             return attributs;
         }
@@ -40,9 +40,9 @@ namespace DataAccess
             var obj = Activator.CreateInstance(type);
 
             foreach (var kv in dico)
-            {      
+            {
                 FieldInfo info = type.GetField(kv.Key);
-               
+
                 info.SetValue(obj, Convert.ChangeType(kv.Value, info.FieldType));
             }
             return Convert.ChangeType(obj, this.GetType());
@@ -76,7 +76,7 @@ namespace DataAccess
                     requete = proc;
                     foreach (KeyValuePair<string, string> atr in dico)
                     {
-                        
+
                         Connexion.cmd.CommandType = CommandType.StoredProcedure;
                         Connexion.cmd.Parameters.Add(new MySqlParameter(atr.Key, atr.Value));
                     }
@@ -109,7 +109,7 @@ namespace DataAccess
                     requete = requete.Remove(requete.Length - 1);
                     requete += ");";
                     // test 
-                      Console.WriteLine(requete);
+                    Console.WriteLine(requete);
                 }
             }
             if (id != 0)
@@ -156,15 +156,15 @@ namespace DataAccess
         public dynamic find()
         {
             Dictionary<string, Object> dico = new Dictionary<string, Object>();
-           // dico = ObjectToDictionary<object>(this);
+            // dico = ObjectToDictionary<object>(this);
 
             sql = "SELECT * FROM " + this.GetType().Name + " WHERE id=" + id;
-           // Console.WriteLine(sql);
-           
+            // Console.WriteLine(sql);
+
             IDataReader rd = Connexion.Select(sql);
             while (rd.Read())
             {
-                for ( int i= 0;i < rd.FieldCount;i++)
+                for (int i = 0; i < rd.FieldCount; i++)
                 {
                     dico.Add(rd.GetName(i), rd.GetValue(i).ToString());
                 }
@@ -177,7 +177,7 @@ namespace DataAccess
         {
             Dictionary<string, object> dico = new Dictionary<string, object>();
 
-           string sql = "SELECT * FROM "+ typeof(T).Name +" WHERE id=" + id ;
+            string sql = "SELECT * FROM " + typeof(T).Name + " WHERE id=" + id;
             Console.WriteLine(sql);
             IDataReader rd = Connexion.Select(sql);
             while (rd.Read())
@@ -193,7 +193,7 @@ namespace DataAccess
 
         public int delete(string proc = null)
         {
-            
+
             string requete;
             if (proc != null)
             {
@@ -214,8 +214,8 @@ namespace DataAccess
 
         public List<dynamic> All()
         {
-            
-           // BLACH Dictionary<string, string> champs = new Dictionary<string, string>();
+
+            // BLACH Dictionary<string, string> champs = new Dictionary<string, string>();
             List<dynamic> result = new List<dynamic>();
             string requete = "SELECT * FROM " + this.GetType().Name;
             IDataReader rd = Connexion.Select(requete);
@@ -236,7 +236,10 @@ namespace DataAccess
         }
         public static List<dynamic> all<T>()
         {
+            Connexion.Connect();
+
             List<dynamic> result = new List<dynamic>();
+            System.Console.WriteLine(typeof(T).Name);
             string requete = "SELECT * FROM " + typeof(T).Name;
             Console.WriteLine(requete);
             IDataReader rd = Connexion.Select(requete);
@@ -275,31 +278,35 @@ namespace DataAccess
                 // test 
                 Console.WriteLine(requete);
             }
-                IDataReader rd = Connexion.Select(requete);
-                while (rd.Read())
+            IDataReader rd = Connexion.Select(requete);
+            while (rd.Read())
+            {
+                var ResDico = new Dictionary<string, object>();
+                for (int j = 0; j < rd.FieldCount; j++)
                 {
-                    var ResDico = new Dictionary<string, object>();
-                    for (int j = 0; j < rd.FieldCount; j++)
-                    {
-                        ResDico.Add(rd.GetName(j), rd.GetValue(j).ToString());
-                    }
-                    result.Add(ResDico);
-                    dico = null;
+                    ResDico.Add(rd.GetName(j), rd.GetValue(j).ToString());
                 }
-                rd.Close();
-                return result;
-            
+
+                result.Add(this.DictionaryToObject(ResDico));
+                dico = null;
+            }
+            rd.Close();
+            return result;
 
         }
         public static List<dynamic> select<T>(Dictionary<string, object> dico)
         {
+
+            Connexion.Connect();
+
             List<dynamic> result = new List<dynamic>();
             string requete = "SELECT * FROM " + typeof(T).Name;
+
             if (dico.Count != 0)
             {
                 requete += " WHERE ";
                 int i = 0;
-                foreach (KeyValuePair<string, Object> atr in dico)
+                foreach (KeyValuePair<string, object> atr in dico)
                 {
                     i++;
                     requete += " " + atr.Key + "='" + atr.Value + "' ";
@@ -311,21 +318,20 @@ namespace DataAccess
                 // test 
                 Console.WriteLine(requete);
             }
-                IDataReader rd = Connexion.Select(requete);
-                while (rd.Read())
+            IDataReader rd = Connexion.Select(requete);
+            while (rd.Read())
+            {
+                var ResDico = new Dictionary<string, object>();
+                for (int j = 0; j < rd.FieldCount; j++)
                 {
-                    var ResDico = new Dictionary<string, Object>();
-                    for (int j = 0; j < rd.FieldCount; j++)
-                    {
-                        ResDico.Add(rd.GetName(j), rd.GetValue(j).ToString());
-                    }
-                    result.Add(ResDico);
-                    dico = null;
+                    ResDico.Add(rd.GetName(j), rd.GetValue(j).ToString());
                 }
-                rd.Close();
-                return result;
-
+                result.Add(DictionaryToObject<T>(ResDico));
+                dico = null;
             }
+            rd.Close();
+            return result;
 
         }
+    }
 }

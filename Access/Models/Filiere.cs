@@ -4,5 +4,8 @@
     {
         public string code = "";
         public string designation = "";
+        public override string ToString() {
+            return $"{this.code}: {this.designation}";
+        }
     }
 }
