@@ -7,7 +7,7 @@ using System;
 
 namespace DataAccess
 {
-    internal class Connexion
+    public class Connexion
     {
         public static IDbConnection con;
         public static IDbCommand cmd ;
