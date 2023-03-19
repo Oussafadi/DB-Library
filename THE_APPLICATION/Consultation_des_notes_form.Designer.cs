@@ -65,6 +65,7 @@ namespace THE_APPLICATION
             // 
             // filiere_combo_box
             // 
+            this.filiere_combo_box.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.filiere_combo_box.FormattingEnabled = true;
             this.filiere_combo_box.Location = new System.Drawing.Point(114, 28);
             this.filiere_combo_box.Name = "filiere_combo_box";
@@ -74,6 +75,7 @@ namespace THE_APPLICATION
             // 
             // matiere_combo_box
             // 
+            this.matiere_combo_box.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.matiere_combo_box.FormattingEnabled = true;
             this.matiere_combo_box.Location = new System.Drawing.Point(114, 61);
             this.matiere_combo_box.Name = "matiere_combo_box";
@@ -102,6 +104,7 @@ namespace THE_APPLICATION
             // 
             // niveau_combo_box
             // 
+            this.niveau_combo_box.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.niveau_combo_box.FormattingEnabled = true;
             this.niveau_combo_box.Location = new System.Drawing.Point(401, 28);
             this.niveau_combo_box.Name = "niveau_combo_box";
@@ -122,16 +125,22 @@ namespace THE_APPLICATION
             // 
             this.moy_text_box.Location = new System.Drawing.Point(170, 310);
             this.moy_text_box.Name = "moy_text_box";
+            this.moy_text_box.ReadOnly = true;
             this.moy_text_box.Size = new System.Drawing.Size(100, 20);
             this.moy_text_box.TabIndex = 9;
             // 
             // notes_grid
             // 
+            this.notes_grid.AllowUserToAddRows = false;
+            this.notes_grid.AllowUserToDeleteRows = false;
+            this.notes_grid.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.notes_grid.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.notes_grid.Location = new System.Drawing.Point(23, 114);
             this.notes_grid.Name = "notes_grid";
+            this.notes_grid.ReadOnly = true;
             this.notes_grid.Size = new System.Drawing.Size(625, 165);
             this.notes_grid.TabIndex = 10;
+            this.notes_grid.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.notes_grid_CellContentClick);
             // 
             // Consultation_des_notes_form
             // 
