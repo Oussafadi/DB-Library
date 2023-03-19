@@ -39,9 +39,9 @@ namespace THE_APPLICATION
             this.niveau_combo_box = new System.Windows.Forms.ComboBox();
             this.moy_label = new System.Windows.Forms.Label();
             this.moy_text_box = new System.Windows.Forms.TextBox();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.notes_grid = new System.Windows.Forms.DataGridView();
             this.data_table = new System.Data.DataTable();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.notes_grid)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.data_table)).BeginInit();
             this.SuspendLayout();
             // 
@@ -125,20 +125,20 @@ namespace THE_APPLICATION
             this.moy_text_box.Size = new System.Drawing.Size(100, 20);
             this.moy_text_box.TabIndex = 9;
             // 
-            // dataGridView1
+            // notes_grid
             // 
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(23, 114);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.Size = new System.Drawing.Size(625, 165);
-            this.dataGridView1.TabIndex = 10;
+            this.notes_grid.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.notes_grid.Location = new System.Drawing.Point(23, 114);
+            this.notes_grid.Name = "notes_grid";
+            this.notes_grid.Size = new System.Drawing.Size(625, 165);
+            this.notes_grid.TabIndex = 10;
             // 
             // Consultation_des_notes_form
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(671, 356);
-            this.Controls.Add(this.dataGridView1);
+            this.Controls.Add(this.notes_grid);
             this.Controls.Add(this.moy_text_box);
             this.Controls.Add(this.moy_label);
             this.Controls.Add(this.niveau_combo_box);
@@ -150,7 +150,7 @@ namespace THE_APPLICATION
             this.Controls.Add(this.filiere_label);
             this.Name = "Consultation_des_notes_form";
             this.Text = "Consultation des notes";
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.notes_grid)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.data_table)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -168,7 +168,7 @@ namespace THE_APPLICATION
         private System.Windows.Forms.ComboBox niveau_combo_box;
         private System.Windows.Forms.Label moy_label;
         private System.Windows.Forms.TextBox moy_text_box;
-        private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.DataGridView notes_grid;
         private System.Windows.Forms.DataGridViewTextBoxColumn codeDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn designationDataGridViewTextBoxColumn;
 

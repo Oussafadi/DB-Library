@@ -9,15 +9,13 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using DataAccess;
 using MODELES;
+using Mysqlx.Session;
 
 namespace THE_APPLICATION
 {
     
     public partial class Consultation_des_notes_form : Form
     {
-        Filiere selected_filiere = null;
-        String selected_niveau = null;
-        Matiere selected_matiere = null;
 
         DataTable data_table;
         public Consultation_des_notes_form()
@@ -35,17 +33,25 @@ namespace THE_APPLICATION
             data_table.Columns.Add(new DataColumn("Prenom"));
             data_table.Columns.Add(new DataColumn("Note"));
 
-            this.dataGridView1.DataSource = data_table;
+            this.notes_grid.DataSource = data_table;
 
             foreach (Filiere filiere in Model.all<Filiere>()) {
                 this.filiere_combo_box.Items.Add(filiere);
             }
         }
+        private void reset_combo_box(ComboBox box) {
+            box.Items.Clear();
+            box.SelectedItem = null;
+            box.Text = "";
+        }
 
         private void filiere_combo_box_SelectedIndexChanged(object sender, EventArgs e)
         {
-            selected_filiere = (Filiere) filiere_combo_box.SelectedItem;
+            reset_combo_box(niveau_combo_box);
 
+            Filiere selected_filiere = (Filiere) filiere_combo_box.SelectedItem;
+
+            niveau_combo_box.Items.Clear();
             niveau_combo_box.Items.Add("1");
             niveau_combo_box.Items.Add("2");
             if (selected_filiere.code != "AP")
@@ -53,14 +59,13 @@ namespace THE_APPLICATION
 
         }
 
-        private void matiere_combo_box_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            selected_matiere = (Matiere) matiere_combo_box.SelectedItem;
-        }
-
         private void niveau_combo_box_SelectedIndexChanged(object sender, EventArgs e)
         {
-            selected_niveau = niveau_combo_box.SelectedItem.ToString();
+
+            reset_combo_box(matiere_combo_box);
+
+            Filiere selected_filiere = (Filiere)filiere_combo_box.SelectedItem;
+            string selected_niveau = niveau_combo_box.SelectedItem.ToString();
 
             Dictionary<string, object> rules = new Dictionary<string, object>();
             rules["code_filiere"] = selected_filiere.code;
@@ -70,6 +75,7 @@ namespace THE_APPLICATION
             {
                 Dictionary<string, object> rules_matiere = new Dictionary<string, object>();
                 rules["code_module"] = module.code;
+
                 foreach (Matiere matiere in Model.select<Matiere>(rules_matiere))
                 {
                     matiere_combo_box.Items.Add(matiere);
@@ -77,8 +83,20 @@ namespace THE_APPLICATION
             }
         }
 
+        private void matiere_combo_box_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            Matiere selected_matiere = (Matiere)matiere_combo_box.SelectedItem;
+        }
+
         private void rechercher_button_Click(object sender, EventArgs e)
         {
+
+            data_table.Rows.Clear();
+            Matiere selected_matiere = (Matiere)matiere_combo_box.SelectedItem;
+
+            if (selected_matiere == null)
+                return;
+
             float moy = .0f;
             int tracker = 0;
 
