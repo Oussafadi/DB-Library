@@ -283,7 +283,8 @@ namespace DataAccess
                     {
                         ResDico.Add(rd.GetName(j), rd.GetValue(j).ToString());
                     }
-                    result.Add(ResDico);
+                 //   result.Add(ResDico);
+                result.Add(DictionaryToObject(ResDico));
                     dico = null;
                 }
                 rd.Close();
@@ -319,8 +320,9 @@ namespace DataAccess
                     {
                         ResDico.Add(rd.GetName(j), rd.GetValue(j).ToString());
                     }
-                    result.Add(ResDico);
-                    dico = null;
+                   // result.Add(ResDico);
+                  result.Add(DictionaryToObject<T>(ResDico));
+                dico = null;
                 }
                 rd.Close();
                 return result;
