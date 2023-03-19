@@ -16,9 +16,9 @@ namespace THE_APPLICATION
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            //  Application.Run(new MainForm());
+              Application.Run(new MainForm());
             DataAccess.Connexion.Connect();
-            Application.Run(new Bilan_annuel());
+           // Application.Run(new Bilan_annuel());
         }
     }
 }
