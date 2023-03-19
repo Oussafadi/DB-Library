@@ -68,7 +68,7 @@ namespace THE_APPLICATION
             this.filiere_combo_box.FormattingEnabled = true;
             this.filiere_combo_box.Location = new System.Drawing.Point(114, 28);
             this.filiere_combo_box.Name = "filiere_combo_box";
-            this.filiere_combo_box.Size = new System.Drawing.Size(121, 21);
+            this.filiere_combo_box.Size = new System.Drawing.Size(156, 21);
             this.filiere_combo_box.TabIndex = 2;
             this.filiere_combo_box.SelectedIndexChanged += new System.EventHandler(this.filiere_combo_box_SelectedIndexChanged);
             // 
@@ -77,22 +77,24 @@ namespace THE_APPLICATION
             this.matiere_combo_box.FormattingEnabled = true;
             this.matiere_combo_box.Location = new System.Drawing.Point(114, 61);
             this.matiere_combo_box.Name = "matiere_combo_box";
-            this.matiere_combo_box.Size = new System.Drawing.Size(121, 21);
+            this.matiere_combo_box.Size = new System.Drawing.Size(156, 21);
             this.matiere_combo_box.TabIndex = 3;
+            this.matiere_combo_box.SelectedIndexChanged += new System.EventHandler(this.matiere_combo_box_SelectedIndexChanged);
             // 
             // rechercher_button
             // 
-            this.rechercher_button.Location = new System.Drawing.Point(340, 59);
+            this.rechercher_button.Location = new System.Drawing.Point(401, 59);
             this.rechercher_button.Name = "rechercher_button";
-            this.rechercher_button.Size = new System.Drawing.Size(121, 23);
+            this.rechercher_button.Size = new System.Drawing.Size(161, 23);
             this.rechercher_button.TabIndex = 4;
             this.rechercher_button.Text = "Rechercher";
             this.rechercher_button.UseVisualStyleBackColor = true;
+            this.rechercher_button.Click += new System.EventHandler(this.rechercher_button_Click);
             // 
             // niveau_label
             // 
             this.niveau_label.AutoSize = true;
-            this.niveau_label.Location = new System.Drawing.Point(280, 31);
+            this.niveau_label.Location = new System.Drawing.Point(341, 31);
             this.niveau_label.Name = "niveau_label";
             this.niveau_label.Size = new System.Drawing.Size(41, 13);
             this.niveau_label.TabIndex = 5;
@@ -101,10 +103,11 @@ namespace THE_APPLICATION
             // niveau_combo_box
             // 
             this.niveau_combo_box.FormattingEnabled = true;
-            this.niveau_combo_box.Location = new System.Drawing.Point(340, 28);
+            this.niveau_combo_box.Location = new System.Drawing.Point(401, 28);
             this.niveau_combo_box.Name = "niveau_combo_box";
-            this.niveau_combo_box.Size = new System.Drawing.Size(121, 21);
+            this.niveau_combo_box.Size = new System.Drawing.Size(161, 21);
             this.niveau_combo_box.TabIndex = 6;
+            this.niveau_combo_box.SelectedIndexChanged += new System.EventHandler(this.niveau_combo_box_SelectedIndexChanged);
             // 
             // moy_label
             // 
@@ -124,19 +127,17 @@ namespace THE_APPLICATION
             // 
             // dataGridView1
             // 
-            this.dataGridView1.AutoGenerateColumns = false;
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.DataSource = this.data_table;
             this.dataGridView1.Location = new System.Drawing.Point(23, 114);
             this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.Size = new System.Drawing.Size(482, 165);
+            this.dataGridView1.Size = new System.Drawing.Size(625, 165);
             this.dataGridView1.TabIndex = 10;
             // 
             // Consultation_des_notes_form
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(529, 356);
+            this.ClientSize = new System.Drawing.Size(671, 356);
             this.Controls.Add(this.dataGridView1);
             this.Controls.Add(this.moy_text_box);
             this.Controls.Add(this.moy_label);
@@ -170,6 +171,6 @@ namespace THE_APPLICATION
         private System.Windows.Forms.DataGridView dataGridView1;
         private System.Windows.Forms.DataGridViewTextBoxColumn codeDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn designationDataGridViewTextBoxColumn;
-        private DataTable data_table;
+
     }
 }

@@ -11,5 +11,10 @@ namespace MODELES
         public string code_module = "";
         public float VH = 0;
 
+        public override string ToString()
+        {
+            return $"[{code}]: {designation}";
+        }
+
     }
 }
