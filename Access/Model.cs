@@ -3,6 +3,7 @@ using System.Data;
 using System.Reflection;
 using System;
 using System.Collections.Generic;
+using System.Xml.Linq;
 
 namespace DataAccess
 {
@@ -193,6 +194,22 @@ namespace DataAccess
 
         public int delete(string proc = null)
         {
+            DateTime now = DateTime.Now;
+            XDocument x = XDocument.Load(@"C:\Users\yassine\Desktop\gilani\MINI_PROJECT_C_SHARP\MINI_PROJECT_C_SHARP\Access\ENSAT.xml");
+            XElement delet = new XElement("delete" + this.id);
+            XElement root = x.Root;
+            XElement clas = root.Element(this.GetType().Name);
+            Dictionary<string, string> dico = new Dictionary<string, string>();
+            dico = Model.ObjectToDictionary<string>(this);
+            foreach(var el in dico)
+            {
+                delet.Add(new XElement(el.Key.ToString(),el.Value));
+            }
+            delet.Add(new XElement("Date",now.ToString()));
+
+            clas.Add(delet);
+            x.Save(@"C:\Users\yassine\Desktop\gilani\MINI_PROJECT_C_SHARP\MINI_PROJECT_C_SHARP\Access\ENSAT.xml");
+
 
             string requete;
             if (proc != null)
@@ -209,6 +226,7 @@ namespace DataAccess
             {
                 requete = "DELETE FROM " + this.GetType().Name + " WHERE id =" + this.id;
             }
+           
             return Connexion.IUD(requete);
         }
 
@@ -286,7 +304,7 @@ namespace DataAccess
                 {
 
                     ResDico.Add(rd.GetName(j), rd.GetValue(j).ToString());
->>>>>>> master
+
                 }
 
                 result.Add(this.DictionaryToObject(ResDico));
@@ -326,18 +344,9 @@ namespace DataAccess
                 var ResDico = new Dictionary<string, object>();
                 for (int j = 0; j < rd.FieldCount; j++)
                 {
-<<<<<<< HEAD
-                    var ResDico = new Dictionary<string, Object>();
-                    for (int j = 0; j < rd.FieldCount; j++)
-                    {
-                        ResDico.Add(rd.GetName(j), rd.GetValue(j).ToString());
-                    }
-                   // result.Add(ResDico);
-                  result.Add(DictionaryToObject<T>(ResDico));
-                dico = null;
-=======
+
                     ResDico.Add(rd.GetName(j), rd.GetValue(j).ToString());
->>>>>>> master
+
                 }
                 result.Add(DictionaryToObject<T>(ResDico));
                 dico = null;

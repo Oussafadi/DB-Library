@@ -22,7 +22,7 @@ namespace DataAccess
              //   cmd = new MySqlCommand();
 
                 var DatabaseInfo = new Dictionary<string, string>();
-                string file = @"C:\Users\joudia\Desktop\project_c_sharp\Access\.env";
+                string file = @"C:\Users\yassine\Desktop\gilani\MINI_PROJECT_C_SHARP\MINI_PROJECT_C_SHARP\Access\.env";
                 if (File.Exists(file))
                 {
                     string[] lines = File.ReadAllLines(file);

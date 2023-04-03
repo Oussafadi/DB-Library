@@ -1,0 +1,17 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<tables>
+  <Eleve></Eleve>
+  <Filiere></Filiere>
+  <Matiere></Matiere>
+  <Module></Module>
+  <Moyenne></Moyenne>
+  <Note>
+    <delete14>
+      <code_eleve>elv1</code_eleve>
+      <code_matiere>m</code_matiere>
+      <note>0</note>
+      <id>14</id>
+      <Date>2023-04-02T22:54:29.4738411+00:00</Date>
+    </delete14>
+  </Note>
+</tables>
