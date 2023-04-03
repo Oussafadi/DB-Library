@@ -16,6 +16,8 @@ namespace THE_APPLICATION
     {
         public gestion_des_notes()
         {
+            DataAccess.Connexion.Connect();
+
             InitializeComponent();
         }
 
