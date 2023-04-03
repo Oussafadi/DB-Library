@@ -284,18 +284,12 @@ namespace DataAccess
                 var ResDico = new Dictionary<string, object>();
                 for (int j = 0; j < rd.FieldCount; j++)
                 {
-<<<<<<< HEAD
+
                     ResDico.Add(rd.GetName(j), rd.GetValue(j).ToString());
-=======
-                    var ResDico = new Dictionary<string, object>();
-                    for (int j = 0; j < rd.FieldCount; j++)
-                    {
-                        ResDico.Add(rd.GetName(j), rd.GetValue(j).ToString());
-                    }
+
                  //   result.Add(ResDico);
-                result.Add(DictionaryToObject(ResDico));
+                    result.Add(DictionaryToObject(ResDico));
                     dico = null;
->>>>>>> bilan finished but needs export excel button i will add it later
                 }
 
                 result.Add(this.DictionaryToObject(ResDico));
@@ -335,18 +329,8 @@ namespace DataAccess
                 var ResDico = new Dictionary<string, object>();
                 for (int j = 0; j < rd.FieldCount; j++)
                 {
-<<<<<<< HEAD
+
                     ResDico.Add(rd.GetName(j), rd.GetValue(j).ToString());
-=======
-                    var ResDico = new Dictionary<string, Object>();
-                    for (int j = 0; j < rd.FieldCount; j++)
-                    {
-                        ResDico.Add(rd.GetName(j), rd.GetValue(j).ToString());
-                    }
-                   // result.Add(ResDico);
-                  result.Add(DictionaryToObject<T>(ResDico));
-                dico = null;
->>>>>>> bilan finished but needs export excel button i will add it later
                 }
                 result.Add(DictionaryToObject<T>(ResDico));
                 dico = null;
