@@ -75,6 +75,7 @@ namespace DataAccess
 
         public static IDataReader Select(string req)
         {
+            cmd.CommandType = CommandType.Text;
             cmd.CommandText = req;
             return cmd.ExecuteReader();
         }

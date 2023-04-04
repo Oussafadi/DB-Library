@@ -1,24 +1,52 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <tables>
-  <Eleve></Eleve>
-  <Filiere></Filiere>
-  <Matiere></Matiere>
-  <Module></Module>
-  <Moyenne></Moyenne>
-  <Note>
-    <delete14>
+  <Eleves></Eleves>
+  <Filieres></Filieres>
+  <Matieres></Matieres>
+  <Modules></Modules>
+  <Moyennes></Moyennes>
+  <Notes>
+    <Note>
+      <code_eleve>elv2</code_eleve>
+      <code_matiere>m</code_matiere>
+      <note>19</note>
+      <id>28</id>
+      <Date>4/4/2023 2:53:13 AM</Date>
+    </Note>
+    <Note>
       <code_eleve>elv1</code_eleve>
       <code_matiere>m</code_matiere>
-      <note>0</note>
-      <id>14</id>
-      <Date>2023-04-02T22:54:29.4738411+00:00</Date>
-    </delete14>
-    <delete19>
+      <note>20</note>
+      <id>31</id>
+      <Date>4/4/2023 3:44:53 AM</Date>
+    </Note>
+    <Note>
+      <code_eleve>elv2</code_eleve>
+      <code_matiere>m</code_matiere>
+      <note>19</note>
+      <id>32</id>
+      <Date>4/4/2023 3:44:58 AM</Date>
+    </Note>
+    <Note>
+      <code_eleve>elv3</code_eleve>
+      <code_matiere>m</code_matiere>
+      <note>16</note>
+      <id>29</id>
+      <Date>4/4/2023 3:45:09 AM</Date>
+    </Note>
+    <Note>
       <code_eleve>elv1</code_eleve>
       <code_matiere>m</code_matiere>
-      <note>0</note>
-      <id>19</id>
-      <Date>4/3/2023 8:07:23 PM</Date>
-    </delete19>
-  </Note>
+      <note>20</note>
+      <id>34</id>
+      <Date>4/4/2023 4:19:53 AM</Date>
+    </Note>
+    <Note>
+      <id>36</id>
+      <code_eleve>elv1</code_eleve>
+      <code_matiere>m</code_matiere>
+      <note>100</note>
+      <Date>4/4/2023 4:20:42 AM</Date>
+    </Note>
+  </Notes>
 </tables>

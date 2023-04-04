@@ -75,16 +75,19 @@ namespace DataAccess
                 if (proc != null)
                 {
                     requete = proc;
+                    Connexion.cmd.CommandType = CommandType.StoredProcedure;
+                    Connexion.cmd.Parameters.Clear();
                     foreach (KeyValuePair<string, string> atr in dico)
                     {
 
-                        Connexion.cmd.CommandType = CommandType.StoredProcedure;
+                        
                         Connexion.cmd.Parameters.Add(new MySqlParameter(atr.Key, atr.Value));
                     }
 
                 }
                 else
                 {
+                    Connexion.cmd.CommandType = CommandType.Text;
                     requete = "INSERT INTO " + this.GetType().Name + "(";
                     FieldInfo[] fields = this.GetType().GetFields();
                     for (int i = 0; i < fields.Length; i++)
@@ -119,10 +122,12 @@ namespace DataAccess
                 if (proc != null)
                 {
                     requete = proc;
+                    Connexion.cmd.CommandType = CommandType.StoredProcedure;
+                    Connexion.cmd.Parameters.Clear();
                     foreach (KeyValuePair<string, string> atr in dico)
                     {
 
-                        Connexion.cmd.CommandType = CommandType.StoredProcedure;
+                        
                         Connexion.cmd.Parameters.Add(new MySqlParameter(atr.Key, atr.Value));
 
                     }
@@ -130,6 +135,8 @@ namespace DataAccess
                 }
                 else
                 {
+                    Connexion.cmd.CommandType = CommandType.Text;
+
                     requete = "UPDATE " + this.GetType().Name + " SET";
 
                     foreach (var atr in dico)
@@ -196,9 +203,9 @@ namespace DataAccess
         {
             DateTime now = DateTime.Now;
             XDocument x = XDocument.Load(@"C:\Users\yassine\Desktop\gilani\MINI_PROJECT_C_SHARP\MINI_PROJECT_C_SHARP\Access\ENSAT.xml");
-            XElement delet = new XElement("delete" + this.id);
+            XElement delet = new XElement(this.GetType().Name);
             XElement root = x.Root;
-            XElement clas = root.Element(this.GetType().Name);
+            XElement clas = root.Element(this.GetType().Name+"s");
             Dictionary<string, string> dico = new Dictionary<string, string>();
             dico = Model.ObjectToDictionary<string>(this);
             foreach(var el in dico)
@@ -212,18 +219,21 @@ namespace DataAccess
 
 
             string requete;
+            Connexion.cmd.CommandType = CommandType.StoredProcedure;
+            Connexion.cmd.Parameters.Clear();
             if (proc != null)
             {
                 requete = proc;
 
 
-                Connexion.cmd.CommandType = CommandType.StoredProcedure;
+           
                 Connexion.cmd.Parameters.Add(new MySqlParameter("id", this.id));
 
 
             }
             else
             {
+                Connexion.cmd.CommandType = CommandType.Text;
                 requete = "DELETE FROM " + this.GetType().Name + " WHERE id =" + this.id;
             }
            

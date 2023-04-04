@@ -17,7 +17,7 @@ namespace THE_APPLICATION
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
               Application.Run(new gestion_des_notes());
-            DataAccess.Connexion.Connect();
+    
            // Application.Run(new Bilan_annuel());
         }
     }
