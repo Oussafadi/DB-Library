@@ -10,23 +10,16 @@ using System.Windows.Forms;
 
 namespace THE_APPLICATION
 {
-    public partial class Form1 : Form
+    public partial class PageP : Form
     {
-        public Form1()
+        public PageP()
         {
             InitializeComponent();
         }
 
-        private void nToolStripMenuItem_Click(object sender, EventArgs e)
+        private void PageP_Load(object sender, EventArgs e)
         {
 
-        }
-
-        private void etudiantsToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            Form2 frm = new Form2();
-            frm.Visible = true;
-            
         }
     }
 }

@@ -23,7 +23,7 @@ public class Program
         e7.nom = "o";
         e7.prenom = "fadil";
         e7.niveau = "GINF2";
-        e7.id_fil = "1";
+       // e7.code_filiere = "1";
         e7.id = 1;
         e7.save();  // Procedure update Marche bien
 

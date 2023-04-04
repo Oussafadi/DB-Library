@@ -110,6 +110,7 @@ namespace DataAccess
                     requete += ");";
                     // test 
                       Console.WriteLine(requete);
+                    
                 }
             }
             if (id != 0)
@@ -273,7 +274,7 @@ namespace DataAccess
                     }
                 }
                 // test 
-                Console.WriteLine(requete);
+               // Console.WriteLine(requete);
             }
                 IDataReader rd = Connexion.Select(requete);
                 while (rd.Read())

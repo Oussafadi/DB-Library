@@ -7,14 +7,14 @@ using System;
 
 namespace DataAccess
 {
-    internal class Connexion
+    public class Connexion
     {
         public static IDbConnection con;
         public static IDbCommand cmd ;
 
         public static void Connect()
         {
-
+        
             if (con == null)
             {
              //   string str_con = "server=localhost;uid=root;pwd='';database=bdjava";
@@ -22,7 +22,7 @@ namespace DataAccess
              //   cmd = new MySqlCommand();
 
                 var DatabaseInfo = new Dictionary<string, string>();
-                string file = @"C:\Users\joudia\Desktop\project_c_sharp\Access\.env";
+                string file = @"C:\Users\HP\source\repos\MINI_PROJECT_C_SHARP\Access\.env";
                 if (File.Exists(file))
                 {
                     string[] lines = File.ReadAllLines(file);
