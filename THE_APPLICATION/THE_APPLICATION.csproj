@@ -60,11 +60,11 @@
     <Compile Include="Consultation_des_notes_form.Designer.cs">
       <DependentUpon>Consultation_des_notes_form.cs</DependentUpon>
     </Compile>
-    <Compile Include="gestion_des_notes.cs">
+    <Compile Include="Gestion_des_notes.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="gestion_des_notes.Designer.cs">
-      <DependentUpon>gestion_des_notes.cs</DependentUpon>
+    <Compile Include="Gestion_des_notes.Designer.cs">
+      <DependentUpon>Gestion_des_notes.cs</DependentUpon>
     </Compile>
     <Compile Include="main_form.cs">
       <SubType>Form</SubType>
@@ -86,8 +86,8 @@
     <EmbeddedResource Include="Consultation_des_notes_form.resx">
       <DependentUpon>Consultation_des_notes_form.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="gestion_des_notes.resx">
-      <DependentUpon>gestion_des_notes.cs</DependentUpon>
+    <EmbeddedResource Include="Gestion_des_notes.resx">
+      <DependentUpon>Gestion_des_notes.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="main_form.resx">
       <DependentUpon>main_form.cs</DependentUpon>
