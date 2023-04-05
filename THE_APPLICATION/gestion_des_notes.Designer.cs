@@ -4,7 +4,7 @@ using System.Collections.Generic;
 
 namespace THE_APPLICATION
 {
-    partial class gestion_des_notes
+    partial class Gestion_des_notes
     {
         /// <summary>
         /// Required designer variable.

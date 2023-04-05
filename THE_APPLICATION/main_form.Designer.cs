@@ -83,6 +83,7 @@
             this.etudiantsToolStripMenuItem.Name = "etudiantsToolStripMenuItem";
             this.etudiantsToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.etudiantsToolStripMenuItem.Text = "Etudiants";
+            this.etudiantsToolStripMenuItem.Click += new System.EventHandler(this.etudiantsToolStripMenuItem_Click);
             // 
             // notesToolStripMenuItem
             // 

@@ -178,8 +178,6 @@ namespace THE_APPLICATION
         private System.Windows.Forms.Label moy_label;
         private System.Windows.Forms.TextBox moy_text_box;
         private System.Windows.Forms.DataGridView notes_grid;
-        private System.Windows.Forms.DataGridViewTextBoxColumn codeDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn designationDataGridViewTextBoxColumn;
 
     }
 }

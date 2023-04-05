@@ -13,9 +13,9 @@ using System.Xml.Linq;
 
 namespace THE_APPLICATION
 {
-    public partial class gestion_des_notes : Form
+    public partial class Gestion_des_notes : Form
     {
-        public gestion_des_notes()
+        public Gestion_des_notes()
         {
             DataAccess.Connexion.Connect();
 

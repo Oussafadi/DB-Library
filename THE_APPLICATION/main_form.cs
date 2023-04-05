@@ -50,5 +50,11 @@ namespace THE_APPLICATION
             DataAccess.Connexion.file = Config.ENV_FILE;
 
         }
+
+        private void etudiantsToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Form gestion_des_etudiants = new Gestion_des_etudiants_form();
+            gestion_des_etudiants.ShowDialog();
+        }
     }
 }

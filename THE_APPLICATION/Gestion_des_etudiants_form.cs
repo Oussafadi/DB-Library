@@ -1,5 +1,4 @@
 ﻿using DataAccess;
-using MySql.Data.MySqlClient;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -15,9 +14,9 @@ using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 
 namespace THE_APPLICATION
 {
-    public partial class Form2 : Form
+    public partial class Gestion_des_etudiants_form : Form
     {
-        public Form2()
+        public Gestion_des_etudiants_form()
         {
             InitializeComponent();
         }

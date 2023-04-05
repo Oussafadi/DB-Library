@@ -1,6 +1,6 @@
 ﻿namespace THE_APPLICATION
 {
-    partial class Form2
+    partial class Gestion_des_etudiants_form
     {
         /// <summary>
         /// Required designer variable.
