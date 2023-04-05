@@ -20,7 +20,7 @@ namespace THE_APPLICATION
 
         private void Form1_Load(object sender, EventArgs e)
         {
-            this.Text = Application.ExecutablePath;
+            MainForm.env_detection();
         }
 
         private void affichageToolStripMenuItem_Click(object sender, EventArgs e)
@@ -37,18 +37,18 @@ namespace THE_APPLICATION
             bn.Show();
         }
 
-        private void env_detection()
+        public static void env_detection()
         {
-            FolderBrowserDialog folder_browser = new FolderBrowserDialog();
-            folder_browser.ShowDialog();
+            //FolderBrowserDialog folder_browser = new FolderBrowserDialog();
+            FileDialog file_browser = new OpenFileDialog();
+            file_browser.ShowDialog();
 
-            Config.DATA_FOLDER = folder_browser.SelectedPath;
-            Config.CONFIG_FOLDER += Config.DATA_FOLDER + "\\Config";
-            Config.ENV_FILE += Config.CONFIG_FOLDER + "\\.env";
+            //Config.DATA_FOLDER = folder_browser.SelectedPath;
+            //Config.CONFIG_FOLDER += Config.DATA_FOLDER + "\\Config";
+            Config.ENV_FILE += file_browser.FileName;
 
             DataAccess.Connexion.file = Config.ENV_FILE;
 
-            this.Text = Config.ENV_FILE;
         }
     }
 }
