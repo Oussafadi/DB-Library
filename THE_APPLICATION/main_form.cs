@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using DataAccess;
 
 namespace THE_APPLICATION
 {
@@ -19,7 +20,7 @@ namespace THE_APPLICATION
 
         private void Form1_Load(object sender, EventArgs e)
         {
-
+            MainForm.env_detection();
         }
 
         private void affichageToolStripMenuItem_Click(object sender, EventArgs e)
@@ -31,9 +32,23 @@ namespace THE_APPLICATION
 
         private void bilanToolStripMenuItem_Click(object sender, EventArgs e)
         {
-          Bilan_annuel bn =  new Bilan_annuel();
+            Bilan_annuel bn =  new Bilan_annuel();
             bn.MdiParent = this;
             bn.Show();
+        }
+
+        public static void env_detection()
+        {
+            //FolderBrowserDialog folder_browser = new FolderBrowserDialog();
+            FileDialog file_browser = new OpenFileDialog();
+            file_browser.ShowDialog();
+
+            //Config.DATA_FOLDER = folder_browser.SelectedPath;
+            //Config.CONFIG_FOLDER += Config.DATA_FOLDER + "\\Config";
+            Config.ENV_FILE += file_browser.FileName;
+
+            DataAccess.Connexion.file = Config.ENV_FILE;
+
         }
     }
 }

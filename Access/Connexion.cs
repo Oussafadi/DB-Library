@@ -11,6 +11,7 @@ namespace DataAccess
     {
         public static IDbConnection con;
         public static IDbCommand cmd ;
+        public static string file = @"path to .env";
 
         public static void Connect()
         {
@@ -22,17 +23,21 @@ namespace DataAccess
              //   cmd = new MySqlCommand();
 
                 var DatabaseInfo = new Dictionary<string, string>();
-                string file = @"C:\Users\yassine\Desktop\gilani\MINI_PROJECT_C_SHARP\MINI_PROJECT_C_SHARP\Access\.env";
+
                 if (File.Exists(file))
                 {
                     string[] lines = File.ReadAllLines(file);
                     string[] parts;
-                    foreach ( string line in lines )
+                    foreach (string line in lines)
                     {
                         parts = line.Split(" = ".ToCharArray());
                         DatabaseInfo.Add(parts[0], parts[1]);
                     }
+                } else {
+
+                    return;
                 }
+
                 switch (DatabaseInfo["DB_CONNECTION"])
                 {
                     case "mysql":

@@ -126,5 +126,10 @@ namespace THE_APPLICATION
                 data_table.Rows.Add(row);
             }
         }
+
+        private void notes_grid_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
     }
 }
