@@ -53,6 +53,7 @@
     <Compile Include="Bilan_annuel.Designer.cs">
       <DependentUpon>Bilan_annuel.cs</DependentUpon>
     </Compile>
+    <Compile Include="Config.cs" />
     <Compile Include="Consultation_des_notes_form.cs">
       <SubType>Form</SubType>
     </Compile>
