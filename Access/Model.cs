@@ -304,7 +304,7 @@ namespace DataAccess
                     }
                 }
                 // test 
-                Console.WriteLine(requete);
+               // Console.WriteLine(requete);
             }
             IDataReader rd = Connexion.Select(requete);
             while (rd.Read())

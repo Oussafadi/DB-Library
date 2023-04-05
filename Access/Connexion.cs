@@ -15,7 +15,7 @@ namespace DataAccess
 
         public static void Connect()
         {
-
+        
             if (con == null)
             {
              //   string str_con = "server=localhost;uid=root;pwd='';database=bdjava";
