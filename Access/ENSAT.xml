@@ -1,6 +1,25 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <tables>
-  <Eleves></Eleves>
+  <Eleves>
+    <Eleve>
+      <id>43</id>
+      <code></code>
+      <nom></nom>
+      <prenom></prenom>
+      <niveau></niveau>
+      <code_filiere></code_filiere>
+      <Date>06/04/2023 15:56:16</Date>
+    </Eleve>
+    <Eleve>
+      <id>50</id>
+      <code></code>
+      <nom></nom>
+      <prenom></prenom>
+      <niveau></niveau>
+      <code_filiere></code_filiere>
+      <Date>06/04/2023 16:15:27</Date>
+    </Eleve>
+  </Eleves>
   <Filieres></Filieres>
   <Matieres></Matieres>
   <Modules></Modules>
