@@ -56,5 +56,10 @@ namespace THE_APPLICATION
             Form gestion_des_etudiants = new Gestion_des_etudiants_form();
             gestion_des_etudiants.ShowDialog();
         }
+
+        private void quitterToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Application.Exit();
+        }
     }
 }

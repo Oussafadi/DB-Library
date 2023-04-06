@@ -69,26 +69,26 @@
             // filieresToolStripMenuItem
             // 
             this.filieresToolStripMenuItem.Name = "filieresToolStripMenuItem";
-            this.filieresToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.filieresToolStripMenuItem.Size = new System.Drawing.Size(123, 22);
             this.filieresToolStripMenuItem.Text = "Filieres";
             // 
             // matieresToolStripMenuItem
             // 
             this.matieresToolStripMenuItem.Name = "matieresToolStripMenuItem";
-            this.matieresToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.matieresToolStripMenuItem.Size = new System.Drawing.Size(123, 22);
             this.matieresToolStripMenuItem.Text = "Matieres";
             // 
             // etudiantsToolStripMenuItem
             // 
             this.etudiantsToolStripMenuItem.Name = "etudiantsToolStripMenuItem";
-            this.etudiantsToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.etudiantsToolStripMenuItem.Size = new System.Drawing.Size(123, 22);
             this.etudiantsToolStripMenuItem.Text = "Etudiants";
             this.etudiantsToolStripMenuItem.Click += new System.EventHandler(this.etudiantsToolStripMenuItem_Click);
             // 
             // notesToolStripMenuItem
             // 
             this.notesToolStripMenuItem.Name = "notesToolStripMenuItem";
-            this.notesToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.notesToolStripMenuItem.Size = new System.Drawing.Size(123, 22);
             this.notesToolStripMenuItem.Text = "Notes";
             // 
             // affichageToolStripMenuItem
@@ -110,6 +110,7 @@
             this.quitterToolStripMenuItem.Name = "quitterToolStripMenuItem";
             this.quitterToolStripMenuItem.Size = new System.Drawing.Size(56, 20);
             this.quitterToolStripMenuItem.Text = "Quitter";
+            this.quitterToolStripMenuItem.Click += new System.EventHandler(this.quitterToolStripMenuItem_Click);
             // 
             // folderToolStripMenuItem
             // 

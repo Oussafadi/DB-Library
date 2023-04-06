@@ -111,6 +111,7 @@
             this.Gestion_nnotesBtn.TabIndex = 5;
             this.Gestion_nnotesBtn.Text = "Gestion notes";
             this.Gestion_nnotesBtn.UseVisualStyleBackColor = true;
+            this.Gestion_nnotesBtn.Click += new System.EventHandler(this.Gestion_nnotesBtn_Click);
             // 
             // label1
             // 
@@ -202,7 +203,6 @@
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.Size = new System.Drawing.Size(716, 229);
             this.dataGridView1.TabIndex = 16;
-            //this.dataGridView1.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.DataGridView1_CellContentClick);
             // 
             // CheckCode
             // 
@@ -212,7 +212,6 @@
             this.CheckCode.Size = new System.Drawing.Size(15, 14);
             this.CheckCode.TabIndex = 17;
             this.CheckCode.UseVisualStyleBackColor = true;
-           // this.CheckCode.CheckedChanged += new System.EventHandler(this.checkBox1_CheckedChanged);
             // 
             // CheckNom
             // 
@@ -250,7 +249,7 @@
             this.CheckNiveau.TabIndex = 21;
             this.CheckNiveau.UseVisualStyleBackColor = true;
             // 
-            // Form2
+            // Gestion_des_etudiants_form
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -277,7 +276,7 @@
             this.Controls.Add(this.ModifierBtn);
             this.Controls.Add(this.AjouterBtn);
             this.Controls.Add(this.NouveauBtn);
-            this.Name = "Form2";
+            this.Name = "Gestion_des_etudiants_form";
             this.Text = "Form2";
             this.Load += new System.EventHandler(this.Form2_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();

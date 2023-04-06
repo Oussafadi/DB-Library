@@ -357,5 +357,11 @@ namespace THE_APPLICATION
 
 
         }
+
+        private void Gestion_nnotesBtn_Click(object sender, EventArgs e)
+        {
+            Form gestion_des_notes = new Gestion_des_notes();
+            gestion_des_notes.ShowDialog();
+        }
     }//fin de la class
 }
