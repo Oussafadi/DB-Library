@@ -167,11 +167,11 @@ namespace THE_APPLICATION
             this.bkp.UseVisualStyleBackColor = true;
             this.bkp.Click += new System.EventHandler(this.bkp_Click);
             // 
-            // gestion_des_notes
+            // Gestion_des_notes
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1190, 450);
+            this.ClientSize = new System.Drawing.Size(820, 260);
             this.Controls.Add(this.bkp);
             this.Controls.Add(this.Rechercher);
             this.Controls.Add(this.Supprimer);
@@ -184,7 +184,7 @@ namespace THE_APPLICATION
             this.Controls.Add(this.note);
             this.Controls.Add(this.matiere);
             this.Controls.Add(this.code);
-            this.Name = "gestion_des_notes";
+            this.Name = "Gestion_des_notes";
             this.Text = "gestion_des_notes";
             this.ResumeLayout(false);
             this.PerformLayout();

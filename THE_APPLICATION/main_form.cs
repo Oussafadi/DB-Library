@@ -20,7 +20,11 @@ namespace THE_APPLICATION
 
         private void Form1_Load(object sender, EventArgs e)
         {
-            MainForm.env_detection();
+            
+        }
+        private void Form_Shown(object sender, EventArgs e)
+        {
+            env_detection();
         }
 
         private void affichageToolStripMenuItem_Click(object sender, EventArgs e)
