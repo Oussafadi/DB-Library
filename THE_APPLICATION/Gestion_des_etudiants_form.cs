@@ -1,5 +1,6 @@
 ﻿using DataAccess;
 using System;
+using System.CodeDom;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -163,7 +164,8 @@ namespace THE_APPLICATION
 
                 Eleve eleve = new Eleve();
                 List<dynamic> elevee = eleve.Select(dico);
-                foreach(dynamic d in elevee)
+                eleve.id = elevee[0].id;  
+               /* foreach(dynamic d in elevee)
                 {
                   foreach(KeyValuePair<string,object> elv in d)
                         {
@@ -171,12 +173,12 @@ namespace THE_APPLICATION
                           eleve.id =Convert.ToInt32(elv.Value);
                         }   
                 }
-
+ */ 
                eleve.delete();
           
               
                 MessageBox.Show("l'eleve supprimé", "infos", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                Form2_Load(this,new EventArgs());
+              Form2_Load(this,new EventArgs());
 
         }
 
@@ -233,28 +235,28 @@ namespace THE_APPLICATION
                     
                     Eleve el = new Eleve();
                     List<dynamic> eleves = el.Select(dico);
-                    foreach(dynamic obj in eleves)
-                        {
-                           foreach(KeyValuePair<string,object> o in obj)
-                                {
-                                   
-                                        if (o.Key == "niveau")
-                                        {
-                                            if(!NiveauCombobox.Items.Contains(o.Value))
-                                            NiveauCombobox.Items.Add(o.Value);
-                                        }
-                                }
-                        }
-                    foreach (var ee in eleves)
+                    //CodeTxt.Text = eleves[0].niveau;
+           foreach(dynamic obj in eleves)
+            {
+               
+                 if(!NiveauCombobox.Items.Contains(obj.niveau))
+                 NiveauCombobox.Items.Add(obj.niveau);
+            }
+                  // NiveauCombobox.Items.Add(o.Value);
+            /*  foreach(dynamic obj in eleves)
                     {
-                     // Eleve ell = (Eleve)ee;
-                     //CodeTxt.Text = ell.niveau;
-                        //  ee.id =((Eleve)el).id;
-                        // CodeTxt.Text=ee.code;
-                        // CodeTxt.Text = ((Eleve)ee).niveau;
-                       //  NiveauCombobox.Items.Add("fege");
-                     }
-              
+                       foreach(KeyValuePair<string,object> o in obj)
+                            {
+
+                                    if (o.Key == "niveau")
+                                    {
+                                        if(!NiveauCombobox.Items.Contains(o.Value))
+                                        NiveauCombobox.Items.Add(o.Value);
+                                    }
+                            }
+                    }
+               */
+
         }
 
 
@@ -273,8 +275,9 @@ namespace THE_APPLICATION
             dataGridView1.Columns[0].Name = "CODE ELEVE";
             dataGridView1.Columns[1].Name = "NOM";
             dataGridView1.Columns[2].Name = "PRENOM";
-            dataGridView1.Columns[3].Name = "FILIERE";
             dataGridView1.Columns[4].Name = "NIVEAU";
+            dataGridView1.Columns[3].Name = "FILIERE";
+            
            
             
             Dictionary<string,object> dico = new Dictionary<string,object>();
@@ -341,14 +344,17 @@ namespace THE_APPLICATION
 
                 {
                     
-                    foreach (KeyValuePair<string, Object> ss in d)
-                    {
-                        if (ss.Key != "id")
-                        {
+                   // foreach (KeyValuePair<string, Object> ss in d)
+                    
+                        
                             
-                                    lis.Add((String)ss.Value);
-                        }
-                    }
+                                    lis.Add(d.code);
+                lis.Add(d.nom);
+                lis.Add(d.prenom);
+                lis.Add(d.niveau);
+                lis.Add(d.code_filiere);
+                        
+                    
                    
                     dataGridView1.Rows.Add(lis[0], lis[1], lis[2], lis[3], lis[4]);
                     lis.Clear();
