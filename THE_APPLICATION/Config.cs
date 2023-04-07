@@ -11,5 +11,6 @@ namespace THE_APPLICATION
         public static string DATA_FOLDER = null;
         public static string CONFIG_FOLDER = null;
         public static string ENV_FILE = null;
+        public static string XML_BACKUP_FILE = null;
     }
 }

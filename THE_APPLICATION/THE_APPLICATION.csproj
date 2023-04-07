@@ -53,12 +53,21 @@
     <Compile Include="Bilan_annuel.Designer.cs">
       <DependentUpon>Bilan_annuel.cs</DependentUpon>
     </Compile>
+    <Compile Include="Bilan_export.cs">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="Config.cs" />
     <Compile Include="Consultation_des_notes_form.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Consultation_des_notes_form.Designer.cs">
       <DependentUpon>Consultation_des_notes_form.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Init_form.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Init_form.Designer.cs">
+      <DependentUpon>Init_form.cs</DependentUpon>
     </Compile>
     <Compile Include="Gestion_des_notes.cs">
       <SubType>Form</SubType>
@@ -88,6 +97,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Gestion_des_notes.resx">
       <DependentUpon>Gestion_des_notes.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Init_form.resx">
+      <DependentUpon>Init_form.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="main_form.resx">
       <DependentUpon>main_form.cs</DependentUpon>
@@ -125,6 +137,28 @@
       <Project>{3aa0ca9d-ff70-496e-9556-15884553a121}</Project>
       <Name>Access</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <COMReference Include="VBIDE">
+      <Guid>{0002E157-0000-0000-C000-000000000046}</Guid>
+      <VersionMajor>5</VersionMajor>
+      <VersionMinor>3</VersionMinor>
+      <Lcid>0</Lcid>
+      <WrapperTool>primary</WrapperTool>
+      <Isolated>False</Isolated>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </COMReference>
+  </ItemGroup>
+  <ItemGroup>
+    <PackageReference Include="EPPlus">
+      <Version>6.2.1</Version>
+    </PackageReference>
+    <PackageReference Include="Microsoft.Office.Interop.Excel">
+      <Version>15.0.4795.1001</Version>
+    </PackageReference>
+    <PackageReference Include="NPOI">
+      <Version>2.6.0</Version>
+    </PackageReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
