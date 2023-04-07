@@ -7,6 +7,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "THE_APPLICATION", "THE_APPL
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Access", "Access\Access.csproj", "{3AA0CA9D-FF70-496E-9556-15884553A121}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Excel Export", "Excel Export.\Excel Export.csproj", "{CC165D1B-6A94-404F-8E9E-62613928DDB1}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +23,10 @@ Global
 		{3AA0CA9D-FF70-496E-9556-15884553A121}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{3AA0CA9D-FF70-496E-9556-15884553A121}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{3AA0CA9D-FF70-496E-9556-15884553A121}.Release|Any CPU.Build.0 = Release|Any CPU
+		{CC165D1B-6A94-404F-8E9E-62613928DDB1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CC165D1B-6A94-404F-8E9E-62613928DDB1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CC165D1B-6A94-404F-8E9E-62613928DDB1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CC165D1B-6A94-404F-8E9E-62613928DDB1}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

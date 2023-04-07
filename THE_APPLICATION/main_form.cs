@@ -1,4 +1,5 @@
 ﻿using System;
+using System.IO;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -20,11 +21,14 @@ namespace THE_APPLICATION
 
         private void Form1_Load(object sender, EventArgs e)
         {
-            
+
         }
         private void Form_Shown(object sender, EventArgs e)
         {
-            env_detection();
+            new Init_form().ShowDialog();
+            DataAccess.Connexion.file = Config.ENV_FILE;
+            DataAccess.Model.xml_path = Config.XML_BACKUP_FILE;
+            DataAccess.Connexion.Connect();
         }
 
         private void affichageToolStripMenuItem_Click(object sender, EventArgs e)
@@ -36,7 +40,7 @@ namespace THE_APPLICATION
 
         private void bilanToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            Bilan_annuel bn =  new Bilan_annuel();
+            Bilan_annuel bn = new Bilan_annuel();
             bn.MdiParent = this;
             bn.Show();
         }

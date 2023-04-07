@@ -9,6 +9,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Microsoft.Office.Interop;
 
 
 namespace THE_APPLICATION
@@ -54,8 +55,12 @@ namespace THE_APPLICATION
 
         private void comboBoxFiliere_SelectedIndexChanged(object sender, EventArgs e)
         {
+            //-------------------------------
+            export_button.Enabled = false;
+            //-------------------------------
+
             // test requete linq ::::: ca marche
-             filSelected = (from Filiere f in Filieres
+            filSelected = (from Filiere f in Filieres
                            where f.code == comboBoxFiliere.Text
                            select f).First();
 
@@ -71,8 +76,13 @@ namespace THE_APPLICATION
 
         private void comboBoxNiveau_SelectedIndexChanged(object sender, EventArgs e)
         {
-             nvSelected = comboBoxNiveau.Text;
-             Eleves = Model.select<Eleve>(new Dictionary<string, object>() { { "niveau", nvSelected } , { "code_filiere" , filSelected.code } });
+
+            //-------------------------------
+            export_button.Enabled = false;
+            //-------------------------------
+
+            nvSelected = comboBoxNiveau.Text;
+            Eleves = Model.select<Eleve>(new Dictionary<string, object>() { { "niveau", nvSelected } , { "code_filiere" , filSelected.code } });
             comboBoxEtudiant.Items.Clear();
             comboBoxEtudiant.Text = "";
             foreach ( var elv in Eleves )
@@ -86,6 +96,10 @@ namespace THE_APPLICATION
 
         private void comboBoxEtudiant_SelectedIndexChanged(object sender, EventArgs e)
         {
+            //-------------------------------
+            export_button.Enabled = false;
+            //-------------------------------
+
             elvSelected = (from Eleve ev in Eleves
                            where (ev.nom + " " + ev.prenom) == comboBoxEtudiant.Text
                            select ev).First();
@@ -128,16 +142,14 @@ namespace THE_APPLICATION
                 foreach (Matiere mat in matkv.Value)
                 {
                     notevar = Model.select<Note>(new Dictionary<string, object>() { { "code_matiere", mat.code }, { "code_eleve", elvSelected.code } }).FirstOrDefault();
-                    if (notevar != null)
+
+                    notesList.Add(new NoteEtd()
                     {
-                        notesList.Add(new NoteEtd()
-                        {
-                            code_matiere = mat.code,
-                            designation = mat.designation,
-                            semestre = matkv.Key,
-                            note = notevar.note
-                        });
-                    }
+                        code_matiere = mat.code,
+                        designation = mat.designation,
+                        semestre = matkv.Key,
+                        note = notevar == null ? float.NaN : notevar.note
+                    });
 
                 }
             }
@@ -152,6 +164,18 @@ namespace THE_APPLICATION
             textBoxMoy.Text = (from NoteEtd n in notesList
                               select n.note).Average().ToString();
 
+            Dictionary<string, object> rules = new Dictionary<string, object>()
+            {
+                ["code_eleve"] = elvSelected.code,
+                ["code_filiere"] = filSelected.code,
+                ["niveau"] = nvSelected.ToString()
+            };
+
+            if (Model.select<Moyenne>(rules).Count != 0)
+                export_button.Enabled = true;
+
         }
+
+        
     }
 }
