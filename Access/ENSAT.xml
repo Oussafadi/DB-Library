@@ -2,22 +2,31 @@
 <tables>
   <Eleves>
     <Eleve>
-      <id>43</id>
-      <code></code>
-      <nom></nom>
-      <prenom></prenom>
-      <niveau></niveau>
-      <code_filiere></code_filiere>
-      <Date>06/04/2023 15:56:16</Date>
+          <id>43</id>
+          <code></code>
+          <nom></nom>
+          <prenom></prenom>
+          <niveau></niveau>
+          <code_filiere></code_filiere>
+          <Date>06/04/2023 15:56:16</Date>
     </Eleve>
     <Eleve>
-      <id>50</id>
-      <code></code>
-      <nom></nom>
-      <prenom></prenom>
-      <niveau></niveau>
-      <code_filiere></code_filiere>
-      <Date>06/04/2023 16:15:27</Date>
+          <id>50</id>
+          <code></code>
+          <nom></nom>
+          <prenom></prenom>
+          <niveau></niveau>
+          <code_filiere></code_filiere>
+          <Date>06/04/2023 16:15:27</Date>
+    </Eleve>
+    <Eleve>
+          <id>49</id>
+          <code></code>
+          <nom></nom>
+          <prenom></prenom>
+          <niveau></niveau>
+          <code_filiere></code_filiere>
+          <Date>07/04/2023 12:35:37</Date>
     </Eleve>
   </Eleves>
   <Filieres></Filieres>
