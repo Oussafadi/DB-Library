@@ -116,6 +116,7 @@
             this.Name = "Init_form";
             this.Text = "Config";
             this.Load += new System.EventHandler(this.Init_form_Load);
+            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.On_closed);
             this.ResumeLayout(false);
             this.PerformLayout();
 

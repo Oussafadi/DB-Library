@@ -37,7 +37,6 @@
             this.affichageToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.bilanToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.quitterToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.folderToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -47,8 +46,7 @@
             this.gestionToolStripMenuItem,
             this.affichageToolStripMenuItem,
             this.bilanToolStripMenuItem,
-            this.quitterToolStripMenuItem,
-            this.folderToolStripMenuItem});
+            this.quitterToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
             this.menuStrip1.Size = new System.Drawing.Size(800, 24);
@@ -69,26 +67,26 @@
             // filieresToolStripMenuItem
             // 
             this.filieresToolStripMenuItem.Name = "filieresToolStripMenuItem";
-            this.filieresToolStripMenuItem.Size = new System.Drawing.Size(123, 22);
+            this.filieresToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.filieresToolStripMenuItem.Text = "Filieres";
             // 
             // matieresToolStripMenuItem
             // 
             this.matieresToolStripMenuItem.Name = "matieresToolStripMenuItem";
-            this.matieresToolStripMenuItem.Size = new System.Drawing.Size(123, 22);
+            this.matieresToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.matieresToolStripMenuItem.Text = "Matieres";
             // 
             // etudiantsToolStripMenuItem
             // 
             this.etudiantsToolStripMenuItem.Name = "etudiantsToolStripMenuItem";
-            this.etudiantsToolStripMenuItem.Size = new System.Drawing.Size(123, 22);
+            this.etudiantsToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.etudiantsToolStripMenuItem.Text = "Etudiants";
             this.etudiantsToolStripMenuItem.Click += new System.EventHandler(this.etudiantsToolStripMenuItem_Click);
             // 
             // notesToolStripMenuItem
             // 
             this.notesToolStripMenuItem.Name = "notesToolStripMenuItem";
-            this.notesToolStripMenuItem.Size = new System.Drawing.Size(123, 22);
+            this.notesToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.notesToolStripMenuItem.Text = "Notes";
             // 
             // affichageToolStripMenuItem
@@ -111,12 +109,6 @@
             this.quitterToolStripMenuItem.Size = new System.Drawing.Size(56, 20);
             this.quitterToolStripMenuItem.Text = "Quitter";
             this.quitterToolStripMenuItem.Click += new System.EventHandler(this.quitterToolStripMenuItem_Click);
-            // 
-            // folderToolStripMenuItem
-            // 
-            this.folderToolStripMenuItem.Name = "folderToolStripMenuItem";
-            this.folderToolStripMenuItem.Size = new System.Drawing.Size(52, 20);
-            this.folderToolStripMenuItem.Text = "Folder";
             // 
             // MainForm
             // 
@@ -148,7 +140,6 @@
         private System.Windows.Forms.ToolStripMenuItem affichageToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem bilanToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem quitterToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem folderToolStripMenuItem;
     }
 }
 

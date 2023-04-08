@@ -48,6 +48,7 @@ namespace THE_APPLICATION
         private void filiere_combo_box_SelectedIndexChanged(object sender, EventArgs e)
         {
             reset_combo_box(niveau_combo_box);
+            reset_combo_box(matiere_combo_box);
 
             Filiere selected_filiere = (Filiere) filiere_combo_box.SelectedItem;
 
@@ -65,16 +66,16 @@ namespace THE_APPLICATION
             reset_combo_box(matiere_combo_box);
 
             Filiere selected_filiere = (Filiere)filiere_combo_box.SelectedItem;
-            string selected_niveau = niveau_combo_box.SelectedItem.ToString();
+            string selected_niveau = (string)niveau_combo_box.SelectedItem;
 
-            Dictionary<string, object> rules = new Dictionary<string, object>();
-            rules["code_filiere"] = selected_filiere.code;
-            rules["niveau"] = selected_niveau;
+            Dictionary<string, object> rules_module = new Dictionary<string, object>();
+            rules_module["code_filiere"] = selected_filiere.code;
+            rules_module["niveau"] = selected_niveau;
 
-            foreach (Module module in Model.select<Module>(rules))
+            foreach (Module module in Model.select<Module>(rules_module))
             {
                 Dictionary<string, object> rules_matiere = new Dictionary<string, object>();
-                rules["code_module"] = module.code;
+                rules_matiere["code_module"] = module.code;
 
                 foreach (Matiere matiere in Model.select<Matiere>(rules_matiere))
                 {
@@ -100,10 +101,10 @@ namespace THE_APPLICATION
             float moy = .0f;
             int tracker = 0;
 
-            Dictionary<string, object> rules = new Dictionary<string, object>();
-            rules["code_matiere"] = selected_matiere.code;
+            Dictionary<string, object> rules_note = new Dictionary<string, object>();
+            rules_note["code_matiere"] = selected_matiere.code;
 
-            foreach (Note note in Model.select<Note>(rules)) {
+            foreach (Note note in Model.select<Note>(rules_note)) {
 
                 ++tracker;
                 moy += note.note;
@@ -114,10 +115,11 @@ namespace THE_APPLICATION
                 // querying the "Eleve"
 
                 Dictionary<string, object> rules_eleve = new Dictionary<string, object>();
-                rules["code"] = note.code_eleve;
+                rules_eleve["code"] = note.code_eleve;
+
                 foreach (Eleve eleve in Model.select<Eleve>(rules_eleve)) {
                     row["Nom"] = eleve.nom;
-                    row["Prenom"] = eleve.nom;
+                    row["Prenom"] = eleve.prenom;
                 }
                 moy /= tracker;
 

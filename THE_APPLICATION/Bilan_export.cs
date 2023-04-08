@@ -22,10 +22,10 @@ namespace THE_APPLICATION
         {
             export_callback(dataGridView1);
 
-
         }
         private void export_callback(DataGridView grid) {
 
+            // init
             ExcelPackage package = new ExcelPackage();
             ExcelWorkbook wb = package.Workbook;
             var sheet = wb.Worksheets.Add(elvSelected.code);
@@ -33,6 +33,7 @@ namespace THE_APPLICATION
 
             int line = 2;
             int colomn_offset = 3;
+            //-----
 
             // eleve info section
             ExcelRange info_area = sheet.Cells[line, colomn_offset, line, colomn_offset + 3];
