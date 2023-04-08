@@ -249,6 +249,7 @@ namespace THE_APPLICATION
         private void backupToolStripMenuItem_Click(object sender, EventArgs e)
         {
             backup();
+            MessageBox.Show("Restored!");
         }
     }
 }

@@ -155,7 +155,7 @@ namespace THE_APPLICATION
                     notevar = Model.select<Note>(new Dictionary<string, object>() {
                         { "code_matiere", matkv.Value.code },
                         { "code_eleve", elvSelected.code }
-                    })[0];
+                    }).FirstOrDefault();
 
                     notesList.Add(new NoteEtd()
                     {
