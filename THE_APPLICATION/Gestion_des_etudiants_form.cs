@@ -161,20 +161,26 @@ namespace THE_APPLICATION
             Dictionary<string, object> dico = new Dictionary<string, object>();
 
             dico.Add("code", CodeTxt.Text);
+                 
+           
 
-                Eleve eleve = new Eleve();
+            Eleve eleve = new Eleve();
                 List<dynamic> elevee = eleve.Select(dico);
-                eleve.id = elevee[0].id;  
-               /* foreach(dynamic d in elevee)
-                {
-                  foreach(KeyValuePair<string,object> elv in d)
-                        {
-                         if (elv.Key == "id")
-                          eleve.id =Convert.ToInt32(elv.Value);
-                        }   
-                }
- */ 
-               eleve.delete();
+                eleve.id = elevee[0].id;
+            eleve.nom = elevee[0].nom;
+            eleve.prenom = elevee[0].prenom;
+            eleve.niveau = elevee[0].niveau;
+            eleve.code_filiere = elevee[0].code_filiere;
+            /* foreach(dynamic d in elevee)
+             {
+               foreach(KeyValuePair<string,object> elv in d)
+                     {
+                      if (elv.Key == "id")
+                       eleve.id =Convert.ToInt32(elv.Value);
+                     }   
+             }
+*/
+            eleve.delete();
           
               
                 MessageBox.Show("l'eleve supprimé", "infos", MessageBoxButtons.OK, MessageBoxIcon.Information);

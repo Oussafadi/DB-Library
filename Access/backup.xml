@@ -1,17 +1,32 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <tables>
   <Eleves>
-    <Eleve></Eleve>
-    <Eleve></Eleve>
-    <Eleve></Eleve>
     <Eleve>
-      <id>6</id>
+      <id>43</id>
       <code></code>
-      <nom>LAGZAL</nom>
-      <prenom>MOHAMMED</prenom>
-      <niveau>3</niveau>
-      <code_filiere>GINFO</code_filiere>
-      <Date>4/8/2023 2:02:50 AM</Date>
+      <nom></nom>
+      <prenom></prenom>
+      <niveau></niveau>
+      <code_filiere></code_filiere>
+      <Date>06/04/2023 15:56:16</Date>
+    </Eleve>
+    <Eleve>
+      <id>50</id>
+      <code></code>
+      <nom></nom>
+      <prenom></prenom>
+      <niveau></niveau>
+      <code_filiere></code_filiere>
+      <Date>06/04/2023 16:15:27</Date>
+    </Eleve>
+    <Eleve>
+      <id>49</id>
+      <code></code>
+      <nom></nom>
+      <prenom></prenom>
+      <niveau></niveau>
+      <code_filiere></code_filiere>
+      <Date>07/04/2023 12:35:37</Date>
     </Eleve>
   </Eleves>
   <Filieres></Filieres>
@@ -60,6 +75,13 @@
       <code_matiere>m</code_matiere>
       <note>100</note>
       <Date>4/4/2023 4:20:42 AM</Date>
+    </Note>
+    <Note>
+      <code_eleve>elv1</code_eleve>
+      <code_matiere>graphtheory</code_matiere>
+      <note>18</note>
+      <id>47</id>
+      <Date>4/8/2023 12:45:20 AM</Date>
     </Note>
   </Notes>
 </tables>

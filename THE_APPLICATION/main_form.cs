@@ -69,5 +69,12 @@ namespace THE_APPLICATION
         {
             Application.Exit();
         }
+
+        private void notesToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Form Gestion_des_note = new Gestion_des_notes();
+            Gestion_des_note.ShowDialog();
+
+        }
     }
 }

@@ -20,6 +20,11 @@ namespace THE_APPLICATION
             DataAccess.Connexion.Connect();
 
             InitializeComponent();
+            List<dynamic> l = Model.all<Matiere>();
+            foreach (var i in l)
+            {
+                this.comboBox1.Items.Add(((Matiere)i).code.ToString());
+            }
         }
 
         private void label1_Click(object sender, EventArgs e)
@@ -34,11 +39,7 @@ namespace THE_APPLICATION
 
         private void Nouveau_Click(object sender, EventArgs e)
         {
-            List<dynamic> l = Model.all<Matiere>();
-            foreach (var i in l)
-            {
-                this.comboBox1.Items.Add(((Matiere)i).code.ToString());
-            }
+           
             codbox.Clear();
             notebox.Clear();
 
@@ -48,91 +49,168 @@ namespace THE_APPLICATION
         {
             int existN = -1;
             int existE = -1;
+            string codefiliere="";
+            string niveau="";
             Note n = new Note();
-            n.note = float.Parse(notebox.Text);
             n.code_eleve = codbox.Text;
             n.code_matiere = comboBox1.Text;
             List<dynamic> ln = Model.all<Note>();
             List<dynamic> le = Model.all<Eleve>();
+            
             //for eleve
-            foreach (var i in le)
+            if (notebox.Text == "") { MessageBox.Show("insere une note !!"); }
+            else
             {
-                if (((Eleve)i).code == n.code_eleve)
+                n.note = float.Parse(notebox.Text);
+
+                foreach (var i in le)
                 {
-                    existE = 1;
-                }
-            }
-            if (existE == 1)
-            {
-                //for note
-                foreach (var i in ln)
-                {
-                    if ((((Note)i).code_eleve == n.code_eleve) && (((Note)i).code_matiere == n.code_matiere))
+                    if (((Eleve)i).code == n.code_eleve)
                     {
-                        existN = 1;
+                        codefiliere = ((Eleve)i).code_filiere;
+                        niveau =((Eleve)i).niveau;
+                        existE = 1;
                     }
                 }
-
-                if (existN == -1) { n.save("NoteInsert");
-                    MessageBox.Show("Ajouter avec succes !!");
-                } else
+                if (existE == 1)
                 {
-                    MessageBox.Show("la note est deja insere pour ce eleve !!");
+                    //for note
+                    foreach (var i in ln)
+                    {
+                        if ((((Note)i).code_eleve == n.code_eleve) && (((Note)i).code_matiere == n.code_matiere))
+                        {
+                            existN = 1;
+                        }
+                    }
+
+                    if (existN == -1)
+                    {
+                        n.save("NoteInsert");
+                        MessageBox.Show("Ajouter avec succes !!");
+                    }
+                    else
+                    {
+                        MessageBox.Show("la note est deja insere pour ce eleve !!");
+                    }
                 }
-            }
-            if (existE == -1)
-            {
-                MessageBox.Show("le code d'eleve n'existe pas !!");
-            }
+                if (existE == -1)
+                {
+                    MessageBox.Show("le code d'eleve n'existe pas !!");
+                }
 
-            codbox.Clear();
-            notebox.Clear();
+                //calcul moyen
+                int counter = 0;
+                List<dynamic> mat = Model.all<Matiere>();
+                float moyene = 0;
+                foreach (var i in ln)
+                {
+                    if (((Note)i).code_eleve == n.code_eleve)
+                    {
+                        moyene = moyene + ((Note)i).note;
+                        counter++;
+                    }
+                }
+                MessageBox.Show(counter + "," + mat.Count);
 
+                if (counter+1 == mat.Count)
+                {
+
+                    Moyenne m = new Moyenne();
+                    m.code_eleve = n.code_eleve;
+                    m.code_filiere = codefiliere;
+                    m.niveau = niveau;
+                    m.moyenne = moyene/counter;
+                    m.save();
+                }
+
+
+
+
+            }
+           
         }
 
         private void Modifier_Click(object sender, EventArgs e)
         {
+            string codefiliere = "";
+            string niveau = "";
             int existN = -1;
             int existE = -1;
             Note n = new Note();
-            n.note = float.Parse(notebox.Text);
             n.code_eleve = codbox.Text;
             n.code_matiere = comboBox1.Text;
             List<dynamic> ln = Model.all<Note>();
             List<dynamic> le = Model.all<Eleve>();
             //for eleve
-            foreach (var i in le)
+            if (notebox.Text == "") { MessageBox.Show("insere une note !!"); }
+            else
             {
-                if (((Eleve)i).code == n.code_eleve)
+                n.note = float.Parse(notebox.Text);
+
+                foreach (var i in le)
                 {
-                    existE = 1;
-                }
-            }
-            if (existE == 1)
-            {
-                //for note
-                foreach (var i in ln)
-                {
-                    if ((((Note)i).code_eleve == n.code_eleve) && (((Note)i).code_matiere == n.code_matiere))
+                    if (((Eleve)i).code == n.code_eleve)
                     {
-                        existN = 1;
+                        codefiliere = ((Eleve)i).code_filiere;
+                        niveau = ((Eleve)i).niveau;
+                        existE = 1;
+
                     }
                 }
-
-                if (existN == 1) { n.save("NoteUpdate");
-                    MessageBox.Show("Modifier avec succes !!");
-                }
-                else
+                if (existE == 1)
                 {
-                    MessageBox.Show("la note n'existe pas !!");
+                    //for note
+                    foreach (var i in ln)
+                    {
+                        if ((((Note)i).code_eleve == n.code_eleve) && (((Note)i).code_matiere == n.code_matiere))
+                        {
+                            existN = 1;
+                        }
+                    }
+
+                    if (existN == 1)
+                    {
+                        n.save("NoteUpdate");
+                        MessageBox.Show("Modifier avec succes !!");
+                    }
+                    else
+                    {
+                        MessageBox.Show("la note n'existe pas !!");
+                    }
                 }
-            }
-            if (existE == -1)
-            {
-                MessageBox.Show("le code d'eleve n'existe pas !!");
-            }
+                if (existE == -1)
+                {
+                    MessageBox.Show("le code d'eleve n'existe pas !!");
+                }
+
+                //calcul moyen
+                int counter = 0;
+                List<dynamic> mat = Model.all<Matiere>();
+                float moyene = 0;
+                foreach (var i in ln)
+                {
+                    if (((Note)i).code_eleve == n.code_eleve)
+                    {
+                        moyene = moyene + ((Note)i).note;
+                        counter++;
+                    }
+                }
+                MessageBox.Show( counter + "," + mat.Count);
+                if (counter+1 == mat.Count)
+                {
+                    
+
+                    Moyenne m = new Moyenne();
+                    m.code_eleve = n.code_eleve;
+                    m.code_filiere = codefiliere;
+                    m.niveau = niveau;
+                    m.moyenne = moyene / counter;
+                    m.save();
+
+                }
 
 
+            }
 
 
         }
@@ -241,11 +319,7 @@ namespace THE_APPLICATION
             XDocument x = XDocument.Load(@"C:\Users\yassine\Desktop\gilani\MINI_PROJECT_C_SHARP\MINI_PROJECT_C_SHARP\Access\ENSAT.xml");
             XElement root = x.Root;
             //naa i will go explicit
-            /*<Eleves></Eleves>
-            <Filieres></Filieres>
-            <Matieres></Matieres>
-            <Modules></Modules>
-            <Moyennes></Moyennes>*/
+            
 
             XElement notes = root.Element("Notes");
             XElement eleves = root.Element("Eleves");
