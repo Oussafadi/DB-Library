@@ -171,6 +171,8 @@ namespace THE_APPLICATION
             eleve.prenom = elevee[0].prenom;
             eleve.niveau = elevee[0].niveau;
             eleve.code_filiere = elevee[0].code_filiere;
+            eleve.code = elevee[0].code;
+
             /* foreach(dynamic d in elevee)
              {
                foreach(KeyValuePair<string,object> elv in d)

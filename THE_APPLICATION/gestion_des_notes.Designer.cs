@@ -43,7 +43,6 @@ namespace THE_APPLICATION
             this.Modifier = new System.Windows.Forms.Button();
             this.Supprimer = new System.Windows.Forms.Button();
             this.Rechercher = new System.Windows.Forms.Button();
-            this.bkp = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // code
@@ -156,23 +155,11 @@ namespace THE_APPLICATION
             this.Rechercher.UseVisualStyleBackColor = true;
             this.Rechercher.Click += new System.EventHandler(this.Rechercher_Click);
             // 
-            // bkp
-            // 
-            this.bkp.Font = new System.Drawing.Font("Microsoft Tai Le", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.bkp.Location = new System.Drawing.Point(619, 179);
-            this.bkp.Name = "bkp";
-            this.bkp.Size = new System.Drawing.Size(136, 29);
-            this.bkp.TabIndex = 11;
-            this.bkp.Text = "backup";
-            this.bkp.UseVisualStyleBackColor = true;
-            this.bkp.Click += new System.EventHandler(this.bkp_Click);
-            // 
             // Gestion_des_notes
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(820, 260);
-            this.Controls.Add(this.bkp);
             this.Controls.Add(this.Rechercher);
             this.Controls.Add(this.Supprimer);
             this.Controls.Add(this.Modifier);
@@ -204,6 +191,5 @@ namespace THE_APPLICATION
         private System.Windows.Forms.Button Modifier;
         private System.Windows.Forms.Button Supprimer;
         private System.Windows.Forms.Button Rechercher;
-        private System.Windows.Forms.Button bkp;
     }
 }

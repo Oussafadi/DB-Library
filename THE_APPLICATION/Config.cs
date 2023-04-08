@@ -11,6 +11,6 @@ namespace THE_APPLICATION
         public static string DATA_FOLDER = null;
         public static string CONFIG_FOLDER = null;
         public static string ENV_FILE = null;
-        public static string XML_BACKUP_FILE = null;
+        public static string XML_BACKUP_FILE = @"C:\Users\yassine\Desktop\miniprojct\MINI_PROJECT_C_SHARP-master\MINI_PROJECT_C_SHARP\Access\ENSAT.xml";
     }
 }

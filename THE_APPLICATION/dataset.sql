@@ -3,9 +3,9 @@
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : 127.0.0.1
--- Généré le : mer. 05 avr. 2023 à 01:29
+-- Généré le : sam. 08 avr. 2023 à 04:58
 -- Version du serveur : 10.4.27-MariaDB
--- Version de PHP : 8.0.25
+-- Version de PHP : 8.2.0
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -41,11 +41,11 @@ CREATE DEFINER=`root`@`localhost` PROCEDURE `NoteDelete` (IN `id` INT(10))   beg
 delete from note WHERE note.id=id;
 end$$
 
-CREATE DEFINER=`root`@`localhost` PROCEDURE `NoteInsert` (IN `note` FLOAT(10), IN `code_matiere` VARCHAR(10), IN `code_eleve` VARCHAR(10))   BEGIN
+CREATE DEFINER=`root`@`localhost` PROCEDURE `NoteInsert` (IN `note` FLOAT(10), IN `code_matiere` VARCHAR(20), IN `code_eleve` VARCHAR(10))   BEGIN
 INSERT INTO note(note.note,note.code_matiere,note.code_eleve) VALUES(note,code_matiere,code_eleve);
 END$$
 
-CREATE DEFINER=`root`@`localhost` PROCEDURE `NoteUpdate` (IN `note` FLOAT(10), IN `code_matiere` VARCHAR(10), IN `code_eleve` VARCHAR(10))   BEGIN
+CREATE DEFINER=`root`@`localhost` PROCEDURE `NoteUpdate` (IN `note` FLOAT(10), IN `code_matiere` VARCHAR(20), IN `code_eleve` VARCHAR(10))   BEGIN
 UPDATE note SET note.note=note WHERE(note.code_eleve=code_eleve and note.code_matiere=code_matiere);
 END$$
 
@@ -71,9 +71,10 @@ CREATE TABLE `eleve` (
 --
 
 INSERT INTO `eleve` (`id`, `code`, `nom`, `prenom`, `niveau`, `code_filiere`) VALUES
-(1, 'elv1', 'jellouli', 'yassine', '3', 'GINFO'),
-(3, 'elv2', 'abd', 'abd', '2', 'GINFO'),
-(4, 'elv3', 'hado', 'badi', '2', 'GINFO');
+(7, 'elv3', 'KHAYAT', 'ILYAS', '3', 'GINFO'),
+(9, 'elv1', 'jellouli', 'yassine', '2', 'GINFO'),
+(11, 'elv2', 'lagzal', 'mohamed', '2', 'GINFO'),
+(13, 'elv4', 'fadil', 'oussama', '2', 'GINFO');
 
 -- --------------------------------------------------------
 
@@ -113,8 +114,9 @@ CREATE TABLE `matiere` (
 --
 
 INSERT INTO `matiere` (`id`, `code`, `designation`, `VH`, `code_module`) VALUES
-(1, 'echnique_algoritimque_avancer', 'gouy', 12, 'ALGORITHMIQUE'),
-(2, 'm', 'aa', 20, 'ALGORITHMIQUE');
+(1, 'graphtheory', 'void', 20, 'ALGORITHMIQUE'),
+(2, 'php', 'void', 16, 'ALGORITHMIQUE'),
+(3, 'C#', 'void', 16, 'PROGRAMATION');
 
 -- --------------------------------------------------------
 
@@ -136,7 +138,8 @@ CREATE TABLE `module` (
 --
 
 INSERT INTO `module` (`id`, `code`, `designation`, `niveau`, `semestre`, `code_filiere`) VALUES
-(1, 'ALGORITHMIQUE', 'GOUY', '2', '2', 'GINFO');
+(1, 'ALGORITHMIQUE', 'GOUY', '2', '2', 'GINFO'),
+(2, 'PROGRAMATION', 'X', '2', '2', 'GINFO');
 
 -- --------------------------------------------------------
 
@@ -157,7 +160,7 @@ CREATE TABLE `moyenne` (
 --
 
 INSERT INTO `moyenne` (`id`, `code_eleve`, `code_filiere`, `niveau`, `moyenne`) VALUES
-(1, 'elv1', 'GINFO', '2', 13);
+(4, 'elv3', 'GINFO', '2', 16);
 
 --
 -- Déclencheurs `moyenne`
@@ -189,9 +192,9 @@ CREATE TABLE `note` (
 --
 
 INSERT INTO `note` (`id`, `code_eleve`, `code_matiere`, `note`) VALUES
-(33, 'elv2', 'm', 19),
-(35, 'elv3', 'm', 16),
-(37, 'elv1', 'm', 100);
+(53, 'elv3', 'php', 16),
+(54, 'elv3', 'C#', 16),
+(56, 'elv3', 'graphtheory', 10);
 
 --
 -- Index pour les tables déchargées
@@ -241,8 +244,7 @@ ALTER TABLE `moyenne`
 --
 ALTER TABLE `note`
   ADD PRIMARY KEY (`id`,`code_eleve`,`code_matiere`),
-  ADD KEY `N_fk1` (`code_eleve`),
-  ADD KEY `N_fk2` (`code_matiere`);
+  ADD KEY `N_fk1` (`code_eleve`);
 
 --
 -- AUTO_INCREMENT pour les tables déchargées
@@ -252,7 +254,7 @@ ALTER TABLE `note`
 -- AUTO_INCREMENT pour la table `eleve`
 --
 ALTER TABLE `eleve`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
 
 --
 -- AUTO_INCREMENT pour la table `filiere`
@@ -264,25 +266,25 @@ ALTER TABLE `filiere`
 -- AUTO_INCREMENT pour la table `matiere`
 --
 ALTER TABLE `matiere`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT pour la table `module`
 --
 ALTER TABLE `module`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT pour la table `moyenne`
 --
 ALTER TABLE `moyenne`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT pour la table `note`
 --
 ALTER TABLE `note`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=38;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=59;
 
 --
 -- Contraintes pour les tables déchargées

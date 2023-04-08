@@ -1,17 +1,50 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <tables>
   <Eleves>
-    <Eleve></Eleve>
-    <Eleve></Eleve>
-    <Eleve></Eleve>
     <Eleve>
-      <id>6</id>
-      <code></code>
-      <nom>LAGZAL</nom>
-      <prenom>MOHAMMED</prenom>
+      <id>8</id>
+      <code>elv4</code>
+      <nom>FADIL</nom>
+      <prenom>OUSSAMA</prenom>
+      <niveau>2</niveau>
+      <code_filiere>GINFO</code_filiere>
+      <Date>4/8/2023 2:31:54 AM</Date>
+    </Eleve>
+    <Eleve>
+      <id>12</id>
+      <code>elv4</code>
+      <nom>fadil</nom>
+      <prenom>oussama</prenom>
+      <niveau>2</niveau>
+      <code_filiere>GINFO</code_filiere>
+      <Date>4/8/2023 2:44:00 AM</Date>
+    </Eleve>
+    <Eleve>
+      <id>7</id>
+      <code>elv3</code>
+      <nom>KHAYAT</nom>
+      <prenom>ILYAS</prenom>
       <niveau>3</niveau>
       <code_filiere>GINFO</code_filiere>
-      <Date>4/8/2023 2:02:50 AM</Date>
+      <Date>4/8/2023 3:09:36 AM</Date>
+    </Eleve>
+    <Eleve>
+      <id>9</id>
+      <code>elv1</code>
+      <nom>jellouli</nom>
+      <prenom>yassine</prenom>
+      <niveau>2</niveau>
+      <code_filiere>GINFO</code_filiere>
+      <Date>4/8/2023 3:10:42 AM</Date>
+    </Eleve>
+    <Eleve>
+      <id>15</id>
+      <code>elv1</code>
+      <nom>jellouli</nom>
+      <prenom>yassine</prenom>
+      <niveau>2</niveau>
+      <code_filiere>GINFO</code_filiere>
+      <Date>4/8/2023 3:12:44 AM</Date>
     </Eleve>
   </Eleves>
   <Filieres></Filieres>
@@ -20,46 +53,11 @@
   <Moyennes></Moyennes>
   <Notes>
     <Note>
-      <code_eleve>elv2</code_eleve>
-      <code_matiere>m</code_matiere>
-      <note>19</note>
-      <id>28</id>
-      <Date>4/4/2023 2:53:13 AM</Date>
-    </Note>
-    <Note>
       <code_eleve>elv1</code_eleve>
-      <code_matiere>m</code_matiere>
+      <code_matiere>php</code_matiere>
       <note>20</note>
-      <id>31</id>
-      <Date>4/4/2023 3:44:53 AM</Date>
-    </Note>
-    <Note>
-      <code_eleve>elv2</code_eleve>
-      <code_matiere>m</code_matiere>
-      <note>19</note>
-      <id>32</id>
-      <Date>4/4/2023 3:44:58 AM</Date>
-    </Note>
-    <Note>
-      <code_eleve>elv3</code_eleve>
-      <code_matiere>m</code_matiere>
-      <note>16</note>
-      <id>29</id>
-      <Date>4/4/2023 3:45:09 AM</Date>
-    </Note>
-    <Note>
-      <code_eleve>elv1</code_eleve>
-      <code_matiere>m</code_matiere>
-      <note>20</note>
-      <id>34</id>
-      <Date>4/4/2023 4:19:53 AM</Date>
-    </Note>
-    <Note>
-      <id>36</id>
-      <code_eleve>elv1</code_eleve>
-      <code_matiere>m</code_matiere>
-      <note>100</note>
-      <Date>4/4/2023 4:20:42 AM</Date>
+      <id>59</id>
+      <Date>4/8/2023 3:13:49 AM</Date>
     </Note>
   </Notes>
 </tables>

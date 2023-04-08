@@ -37,6 +37,7 @@
             this.affichageToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.bilanToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.quitterToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.bkp = new System.Windows.Forms.Button();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -67,26 +68,26 @@
             // filieresToolStripMenuItem
             // 
             this.filieresToolStripMenuItem.Name = "filieresToolStripMenuItem";
-            this.filieresToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.filieresToolStripMenuItem.Size = new System.Drawing.Size(123, 22);
             this.filieresToolStripMenuItem.Text = "Filieres";
             // 
             // matieresToolStripMenuItem
             // 
             this.matieresToolStripMenuItem.Name = "matieresToolStripMenuItem";
-            this.matieresToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.matieresToolStripMenuItem.Size = new System.Drawing.Size(123, 22);
             this.matieresToolStripMenuItem.Text = "Matieres";
             // 
             // etudiantsToolStripMenuItem
             // 
             this.etudiantsToolStripMenuItem.Name = "etudiantsToolStripMenuItem";
-            this.etudiantsToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.etudiantsToolStripMenuItem.Size = new System.Drawing.Size(123, 22);
             this.etudiantsToolStripMenuItem.Text = "Etudiants";
             this.etudiantsToolStripMenuItem.Click += new System.EventHandler(this.etudiantsToolStripMenuItem_Click);
             // 
             // notesToolStripMenuItem
             // 
             this.notesToolStripMenuItem.Name = "notesToolStripMenuItem";
-            this.notesToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.notesToolStripMenuItem.Size = new System.Drawing.Size(123, 22);
             this.notesToolStripMenuItem.Text = "Notes";
             this.notesToolStripMenuItem.Click += new System.EventHandler(this.notesToolStripMenuItem_Click);
             // 
@@ -111,11 +112,24 @@
             this.quitterToolStripMenuItem.Text = "Quitter";
             this.quitterToolStripMenuItem.Click += new System.EventHandler(this.quitterToolStripMenuItem_Click);
             // 
+            // bkp
+            // 
+            this.bkp.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.bkp.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.bkp.Location = new System.Drawing.Point(275, 121);
+            this.bkp.Name = "bkp";
+            this.bkp.Size = new System.Drawing.Size(244, 54);
+            this.bkp.TabIndex = 3;
+            this.bkp.Text = "BACKUP";
+            this.bkp.UseVisualStyleBackColor = true;
+            this.bkp.Click += new System.EventHandler(this.button1_Click);
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.bkp);
             this.Controls.Add(this.menuStrip1);
             this.IsMdiContainer = true;
             this.MainMenuStrip = this.menuStrip1;
@@ -141,6 +155,7 @@
         private System.Windows.Forms.ToolStripMenuItem affichageToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem bilanToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem quitterToolStripMenuItem;
+        private System.Windows.Forms.Button bkp;
     }
 }
 
