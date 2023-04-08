@@ -54,6 +54,7 @@
       <DependentUpon>Bilan_annuel.cs</DependentUpon>
     </Compile>
     <Compile Include="Bilan_export.cs">
+      <DependentUpon>Bilan_annuel.cs</DependentUpon>
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Config.cs" />

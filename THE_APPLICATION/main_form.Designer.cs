@@ -37,7 +37,6 @@
             this.affichageToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.bilanToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.quitterToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.folderToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -47,8 +46,7 @@
             this.gestionToolStripMenuItem,
             this.affichageToolStripMenuItem,
             this.bilanToolStripMenuItem,
-            this.quitterToolStripMenuItem,
-            this.folderToolStripMenuItem});
+            this.quitterToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
             this.menuStrip1.Size = new System.Drawing.Size(800, 24);
@@ -113,12 +111,6 @@
             this.quitterToolStripMenuItem.Text = "Quitter";
             this.quitterToolStripMenuItem.Click += new System.EventHandler(this.quitterToolStripMenuItem_Click);
             // 
-            // folderToolStripMenuItem
-            // 
-            this.folderToolStripMenuItem.Name = "folderToolStripMenuItem";
-            this.folderToolStripMenuItem.Size = new System.Drawing.Size(52, 20);
-            this.folderToolStripMenuItem.Text = "Folder";
-            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -149,7 +141,6 @@
         private System.Windows.Forms.ToolStripMenuItem affichageToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem bilanToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem quitterToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem folderToolStripMenuItem;
     }
 }
 
