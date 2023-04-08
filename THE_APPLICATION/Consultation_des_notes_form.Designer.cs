@@ -48,7 +48,7 @@ namespace THE_APPLICATION
             // filiere_label
             // 
             this.filiere_label.AutoSize = true;
-            this.filiere_label.Location = new System.Drawing.Point(31, 31);
+            this.filiere_label.Location = new System.Drawing.Point(32, 46);
             this.filiere_label.Name = "filiere_label";
             this.filiere_label.Size = new System.Drawing.Size(34, 13);
             this.filiere_label.TabIndex = 0;
@@ -57,7 +57,7 @@ namespace THE_APPLICATION
             // matiere_label
             // 
             this.matiere_label.AutoSize = true;
-            this.matiere_label.Location = new System.Drawing.Point(31, 64);
+            this.matiere_label.Location = new System.Drawing.Point(32, 79);
             this.matiere_label.Name = "matiere_label";
             this.matiere_label.Size = new System.Drawing.Size(42, 13);
             this.matiere_label.TabIndex = 1;
@@ -67,9 +67,9 @@ namespace THE_APPLICATION
             // 
             this.filiere_combo_box.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.filiere_combo_box.FormattingEnabled = true;
-            this.filiere_combo_box.Location = new System.Drawing.Point(114, 28);
+            this.filiere_combo_box.Location = new System.Drawing.Point(115, 43);
             this.filiere_combo_box.Name = "filiere_combo_box";
-            this.filiere_combo_box.Size = new System.Drawing.Size(156, 21);
+            this.filiere_combo_box.Size = new System.Drawing.Size(212, 21);
             this.filiere_combo_box.TabIndex = 2;
             this.filiere_combo_box.SelectedIndexChanged += new System.EventHandler(this.filiere_combo_box_SelectedIndexChanged);
             // 
@@ -77,17 +77,17 @@ namespace THE_APPLICATION
             // 
             this.matiere_combo_box.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.matiere_combo_box.FormattingEnabled = true;
-            this.matiere_combo_box.Location = new System.Drawing.Point(114, 61);
+            this.matiere_combo_box.Location = new System.Drawing.Point(115, 76);
             this.matiere_combo_box.Name = "matiere_combo_box";
-            this.matiere_combo_box.Size = new System.Drawing.Size(156, 21);
+            this.matiere_combo_box.Size = new System.Drawing.Size(212, 21);
             this.matiere_combo_box.TabIndex = 3;
             this.matiere_combo_box.SelectedIndexChanged += new System.EventHandler(this.matiere_combo_box_SelectedIndexChanged);
             // 
             // rechercher_button
             // 
-            this.rechercher_button.Location = new System.Drawing.Point(401, 59);
+            this.rechercher_button.Location = new System.Drawing.Point(446, 74);
             this.rechercher_button.Name = "rechercher_button";
-            this.rechercher_button.Size = new System.Drawing.Size(161, 23);
+            this.rechercher_button.Size = new System.Drawing.Size(212, 23);
             this.rechercher_button.TabIndex = 4;
             this.rechercher_button.Text = "Rechercher";
             this.rechercher_button.UseVisualStyleBackColor = true;
@@ -96,7 +96,7 @@ namespace THE_APPLICATION
             // niveau_label
             // 
             this.niveau_label.AutoSize = true;
-            this.niveau_label.Location = new System.Drawing.Point(341, 31);
+            this.niveau_label.Location = new System.Drawing.Point(366, 41);
             this.niveau_label.Name = "niveau_label";
             this.niveau_label.Size = new System.Drawing.Size(41, 13);
             this.niveau_label.TabIndex = 5;
@@ -106,16 +106,16 @@ namespace THE_APPLICATION
             // 
             this.niveau_combo_box.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.niveau_combo_box.FormattingEnabled = true;
-            this.niveau_combo_box.Location = new System.Drawing.Point(401, 28);
+            this.niveau_combo_box.Location = new System.Drawing.Point(446, 38);
             this.niveau_combo_box.Name = "niveau_combo_box";
-            this.niveau_combo_box.Size = new System.Drawing.Size(161, 21);
+            this.niveau_combo_box.Size = new System.Drawing.Size(212, 21);
             this.niveau_combo_box.TabIndex = 6;
             this.niveau_combo_box.SelectedIndexChanged += new System.EventHandler(this.niveau_combo_box_SelectedIndexChanged);
             // 
             // moy_label
             // 
             this.moy_label.AutoSize = true;
-            this.moy_label.Location = new System.Drawing.Point(20, 313);
+            this.moy_label.Location = new System.Drawing.Point(32, 328);
             this.moy_label.Name = "moy_label";
             this.moy_label.Size = new System.Drawing.Size(104, 13);
             this.moy_label.TabIndex = 8;
@@ -123,7 +123,7 @@ namespace THE_APPLICATION
             // 
             // moy_text_box
             // 
-            this.moy_text_box.Location = new System.Drawing.Point(170, 310);
+            this.moy_text_box.Location = new System.Drawing.Point(171, 325);
             this.moy_text_box.Name = "moy_text_box";
             this.moy_text_box.ReadOnly = true;
             this.moy_text_box.Size = new System.Drawing.Size(100, 20);
@@ -135,10 +135,10 @@ namespace THE_APPLICATION
             this.notes_grid.AllowUserToDeleteRows = false;
             this.notes_grid.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.notes_grid.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.notes_grid.Location = new System.Drawing.Point(23, 114);
+            this.notes_grid.Location = new System.Drawing.Point(35, 127);
             this.notes_grid.Name = "notes_grid";
             this.notes_grid.ReadOnly = true;
-            this.notes_grid.Size = new System.Drawing.Size(625, 165);
+            this.notes_grid.Size = new System.Drawing.Size(623, 165);
             this.notes_grid.TabIndex = 10;
             this.notes_grid.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.notes_grid_CellContentClick);
             // 
@@ -146,7 +146,7 @@ namespace THE_APPLICATION
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(671, 356);
+            this.ClientSize = new System.Drawing.Size(689, 373);
             this.Controls.Add(this.notes_grid);
             this.Controls.Add(this.moy_text_box);
             this.Controls.Add(this.moy_label);

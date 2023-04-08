@@ -1,4 +1,5 @@
 ﻿using DataAccess;
+using MODELES;
 using System.Collections.Generic;
 using System.IO;
 using System.Security;
@@ -8,6 +9,7 @@ public class Program
 {
     public static void Main(string[] args)
     {
+        Connexion.file = "C:\\Users\\joudia\\Desktop\\Data\\.env";
         System.Console.WriteLine("DataAccess");
 
         //Filiere ap = new Filiere();
@@ -32,17 +34,19 @@ public class Program
         //m.save();
 
         Dictionary<string, object> rules = new Dictionary<string, object>();
-        rules["code_matiere"] = "AP111";
+        rules["code_filiere"] = "GINF";
+        rules["niveau"] = "1";
 
-        Model.select<Note>(rules);
-        
-        foreach (Note note in Model.select<Note>(rules)) {
-            System.Console.WriteLine(note);
-        }
+        foreach (Module module in Model.select<Module>(rules)) {
 
-        foreach (Filiere filiere in Model.all<Filiere>())
-        {
-            System.Console.WriteLine(filiere.code);
+            Dictionary<string, object> rules_matiere = new Dictionary<string, object>();
+            
+            rules_matiere["code_module"] = module.code;
+            foreach (Matiere matiere in Model.select<Matiere>(rules_matiere))
+            {
+
+                System.Console.WriteLine(matiere.designation);
+            }
         }
 
     }
