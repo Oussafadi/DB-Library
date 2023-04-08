@@ -122,11 +122,21 @@ namespace THE_APPLICATION
                 MessageBox.Show(" Les notes de ce etudiant ne sont pas encore saisies  ");
                 return;
             }
-            Dictionary<string, List<dynamic>> matieres = new Dictionary<string, List<dynamic>>();
-            foreach ( Module module in modules)
+            List<KeyValuePair<string, dynamic>> matieres = new List<KeyValuePair<string, dynamic>>();
+            foreach (Module module in modules)
             {
-                if( ! matieres.ContainsKey(module.semestre) )
-                matieres.Add(module.semestre, Model.select<Matiere>(new Dictionary<string, object>() { { "code_module", module.code } })) ;
+                //if ( ! matieres.ContainsKey(module.semestre) )
+                //matieres.Add(module.semestre, Model.select<Matiere>(new Dictionary<string, object>() { { "code_module", module.code } })) ;
+                foreach (Matiere matiere in Model.select<Matiere>(new Dictionary<string, object>() { { "code_module", module.code } })) {
+
+                    matieres.Add(new KeyValuePair<string, dynamic> (
+
+                        module.semestre,
+                        matiere
+                    ));
+                    
+                }
+
             }
             if (matieres.Count == 0)
             {
@@ -137,22 +147,26 @@ namespace THE_APPLICATION
             notesList = new List<dynamic>();
             Note notevar;
 
-            foreach (KeyValuePair<string, List<dynamic>> matkv in matieres)
-            {
-                foreach (Matiere mat in matkv.Value)
+            //foreach (KeyValuePair<string, List<dynamic>> matkv in matieres)
+            //{
+                foreach (KeyValuePair<string, dynamic>matkv in matieres)
                 {
-                    notevar = Model.select<Note>(new Dictionary<string, object>() { { "code_matiere", mat.code }, { "code_eleve", elvSelected.code } }).FirstOrDefault();
+                    
+                    notevar = Model.select<Note>(new Dictionary<string, object>() {
+                        { "code_matiere", matkv.Value.code },
+                        { "code_eleve", elvSelected.code }
+                    })[0];
 
                     notesList.Add(new NoteEtd()
                     {
-                        code_matiere = mat.code,
-                        designation = mat.designation,
+                        code_matiere = matkv.Value.code,
+                        designation = matkv.Value.designation,
                         semestre = matkv.Key,
                         note = notevar == null ? float.NaN : notevar.note
                     });
 
                 }
-            }
+            //}
             if ( notesList.Count == 0)
             {
                 MessageBox.Show(" Les notes de ce etudiant ne sont pas encore saisies  ");
