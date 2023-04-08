@@ -37,7 +37,7 @@
             this.affichageToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.bilanToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.quitterToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.bkp = new System.Windows.Forms.Button();
+            this.backupToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -47,7 +47,8 @@
             this.gestionToolStripMenuItem,
             this.affichageToolStripMenuItem,
             this.bilanToolStripMenuItem,
-            this.quitterToolStripMenuItem});
+            this.quitterToolStripMenuItem,
+            this.backupToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
             this.menuStrip1.Size = new System.Drawing.Size(800, 24);
@@ -112,24 +113,18 @@
             this.quitterToolStripMenuItem.Text = "Quitter";
             this.quitterToolStripMenuItem.Click += new System.EventHandler(this.quitterToolStripMenuItem_Click);
             // 
-            // bkp
+            // backupToolStripMenuItem
             // 
-            this.bkp.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.bkp.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.bkp.Location = new System.Drawing.Point(275, 121);
-            this.bkp.Name = "bkp";
-            this.bkp.Size = new System.Drawing.Size(244, 54);
-            this.bkp.TabIndex = 3;
-            this.bkp.Text = "BACKUP";
-            this.bkp.UseVisualStyleBackColor = true;
-            this.bkp.Click += new System.EventHandler(this.button1_Click);
+            this.backupToolStripMenuItem.Name = "backupToolStripMenuItem";
+            this.backupToolStripMenuItem.Size = new System.Drawing.Size(61, 20);
+            this.backupToolStripMenuItem.Text = "Backup ";
+            this.backupToolStripMenuItem.Click += new System.EventHandler(this.backupToolStripMenuItem_Click);
             // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
-            this.Controls.Add(this.bkp);
             this.Controls.Add(this.menuStrip1);
             this.IsMdiContainer = true;
             this.MainMenuStrip = this.menuStrip1;
@@ -155,7 +150,7 @@
         private System.Windows.Forms.ToolStripMenuItem affichageToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem bilanToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem quitterToolStripMenuItem;
-        private System.Windows.Forms.Button bkp;
+        private System.Windows.Forms.ToolStripMenuItem backupToolStripMenuItem;
     }
 }
 

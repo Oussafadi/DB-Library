@@ -58,7 +58,7 @@ namespace THE_APPLICATION
         {
             Config.DATA_FOLDER = folder_path_text.Text;
             Config.ENV_FILE = env_path_text.Text;
-            Config.XML_BACKUP_FILE = Config.DATA_FOLDER + @"\backup.xml";
+            Config.XML_BACKUP_FILE = Config.DATA_FOLDER + @"\ENSAT.xml";
             DialogResult = DialogResult.OK;
             this.Close();
         }

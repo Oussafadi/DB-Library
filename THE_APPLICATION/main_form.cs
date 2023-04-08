@@ -79,9 +79,9 @@ namespace THE_APPLICATION
 
         }
 
-        private void button1_Click(object sender, EventArgs e)
+        private void backup()
         {
-            XDocument x = XDocument.Load(@"C:\Users\yassine\Desktop\miniprojct\MINI_PROJECT_C_SHARP-master\MINI_PROJECT_C_SHARP\Access\ENSAT.xml");
+            XDocument x = XDocument.Load(Config.XML_BACKUP_FILE);
             XElement root = x.Root;
             //naa i will go explicit
 
@@ -244,6 +244,11 @@ namespace THE_APPLICATION
 
             }
 
+        }
+
+        private void backupToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            backup();
         }
     }
 }

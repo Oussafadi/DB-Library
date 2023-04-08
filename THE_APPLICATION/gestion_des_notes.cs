@@ -348,11 +348,6 @@ namespace THE_APPLICATION
                 MessageBox.Show("le code d'eleve n'existe pas !!");
             }
         }
-
-       
-    
-
-
-        
+  
     }
 }

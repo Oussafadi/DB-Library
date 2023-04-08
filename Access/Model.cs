@@ -203,7 +203,7 @@ namespace DataAccess
         public int delete(string proc = null)
         {
             DateTime now = DateTime.Now;
-            XDocument x = XDocument.Load(@"C:\Users\yassine\Desktop\miniprojct\MINI_PROJECT_C_SHARP-master\MINI_PROJECT_C_SHARP\Access\ENSAT.xml");
+            XDocument x = XDocument.Load(xml_path);
             XElement delet = new XElement(this.GetType().Name);
             XElement root = x.Root;
             XElement clas = root.Element(this.GetType().Name+"s");
@@ -216,7 +216,7 @@ namespace DataAccess
             delet.Add(new XElement("Date",now.ToString()));
 
             clas.Add(delet);
-            x.Save(@"C:\Users\yassine\Desktop\miniprojct\MINI_PROJECT_C_SHARP-master\MINI_PROJECT_C_SHARP\Access\ENSAT.xml");
+            x.Save(xml_path);
 
 
             string requete;
