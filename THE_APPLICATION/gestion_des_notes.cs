@@ -70,6 +70,7 @@ namespace THE_APPLICATION
                         codefiliere = ((Eleve)i).code_filiere;
                         niveau =((Eleve)i).niveau;
                         existE = 1;
+                        break;
                     }
                 }
                 if (existE == 1)
@@ -100,7 +101,24 @@ namespace THE_APPLICATION
 
                 //calcul moyen
                 int counter = 0;
-                List<dynamic> mat = Model.all<Matiere>();
+                List<dynamic> matieres = new List<dynamic>();
+
+                // join, kinda to get the matiere 
+                Dictionary<string, object> rules_module = new Dictionary<string, object>();
+                rules_module["niveau"] = niveau;
+                rules_module["code_filiere"] = codefiliere;
+                foreach (Module module in Model.select<Module>(rules_module)) {
+
+                    Dictionary<string, object> rules_matiere = new Dictionary<string, object>();
+                    rules_matiere["code_module"] = module.code;
+
+                    foreach (Matiere matiere in Model.select<Matiere>(rules_matiere)) {
+                        matieres.Add(matiere);
+                    }
+
+                }
+
+
                 float moyene = 0;
                 foreach (var i in ln)
                 {
@@ -112,9 +130,9 @@ namespace THE_APPLICATION
                 }
             
 
-                if (counter+1 == mat.Count)
+                if (counter+1 == matieres.Count)
                 {
-
+                    MessageBox.Show("La moyenne est calculer.");
                     Moyenne m = new Moyenne();
                     m.code_eleve = n.code_eleve;
                     m.code_filiere = codefiliere;
@@ -123,11 +141,12 @@ namespace THE_APPLICATION
                     m.save();
                 }
 
-
-
-
             }
            
+        }
+
+        private void add_moyenne() { 
+        
         }
 
         private void Modifier_Click(object sender, EventArgs e)
@@ -185,7 +204,24 @@ namespace THE_APPLICATION
 
                 //calcul moyen
                 int counter = 0;
-                List<dynamic> mat = Model.all<Matiere>();
+                List<dynamic> matieres = new List<dynamic>();
+
+                // join, kinda to get the matiere 
+                Dictionary<string, object> rules_module = new Dictionary<string, object>();
+                rules_module["niveau"] = niveau;
+                rules_module["code_filiere"] = codefiliere;
+                foreach (Module module in Model.select<Module>(rules_module))
+                {
+
+                    Dictionary<string, object> rules_matiere = new Dictionary<string, object>();
+                    rules_matiere["code_module"] = module.code;
+
+                    foreach (Matiere matiere in Model.select<Matiere>(rules_matiere))
+                    {
+                        matieres.Add(matiere);
+                    }
+
+                }
                 float moyene = 0;
                 foreach (var i in ln)
                 {
@@ -195,18 +231,17 @@ namespace THE_APPLICATION
                         counter++;
                     }
                 }
-            
-                if (counter+1 == mat.Count)
-                {
-                    
 
+
+                if (counter  == matieres.Count)
+                {
+                    MessageBox.Show("La moyenne est calculer.");
                     Moyenne m = new Moyenne();
                     m.code_eleve = n.code_eleve;
                     m.code_filiere = codefiliere;
                     m.niveau = niveau;
                     m.moyenne = moyene / counter;
                     m.save();
-
                 }
 
 
